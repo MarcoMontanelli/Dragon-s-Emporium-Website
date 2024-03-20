@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Flowbite for additional components -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.0/dist/flowbite.min.js"></script>
+</head>
+<body class="bg-gray-100">
+<!-- Banner/Alert -->
+<div class="bg-blue-100 p-4 rounded-lg">
+    <div class="flex items-center">
+      <div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"></svg></div>
+      <div>
+        <p class="font-bold">Our History</p>
+        <p class="text-sm">Started in 2010, we've grown from a small team to a leading player...</p>
+      </div>
+    </div>
+  </div>
+<!-- Jumbotron -->
+<div class="bg-indigo-600">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <span class="block">Welcome to Our Story</span>
+    </h2>
+  </div>
+</div>
+
+<!-- About Us Section -->
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap">
+    <div class="flex flex-wrap -m-4">
+      <!-- Card 1 -->
+      <div class="p-4 lg:w-1/3">
+        <div class="h-full bg-white rounded-lg overflow-hidden text-center relative">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="your-image-source.jpg" alt="team">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">THE FOUNDERS</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Jane Doe & John Doe</h1>
+            <p class="leading-relaxed mb-3">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="p-4 lg:w-1/3">
+        <div class="h-full bg-white rounded-lg overflow-hidden text-center relative">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="your-image-source.jpg" alt="values">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">OUR VALUES</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Integrity and Innovation</h1>
+            <p class="leading-relaxed mb-3">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="p-4 lg:w-1/3">
+        <div class="h-full bg-white rounded-lg overflow-hidden text-center relative">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="your-image-source.jpg" alt="mission">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">OUR MISSION</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">To Make a Difference</h1>
+            <p class="leading-relaxed mb-3">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Interactive Image Example -->
+<div class="flex justify-center">
+    <img src="your-image-source.jpg" alt="Gallery Image" class="rounded-lg cursor-pointer" onclick="openModal('modal-id')">
+  </div>
+  
+  <!-- Modal for Gallery (Flowbite) -->
+  <div id="modal-id" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+      <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                      Image Gallery
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onclick="closeModal('modal-id')">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+              </div>
+              <div class="p-6 space-y-6">
+                  <!-- Gallery Images Here -->
+                  <img src="your-image-source.jpg" alt="Gallery Image" class="rounded-lg">
+                  <!-- Add more images as needed -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Button -->
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Click Me
+  </button>
+  
+  <!-- Label -->
+  <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+    New
+  </span>
+<!-- Simple Gallery -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <img src="your-image-source.jpg" alt="Gallery" class="rounded-lg">
+    <!-- Repeat for more images -->
+  </div>
+  
+  <!-- Pricing Table -->
+  <div class="overflow-hidden shadow-md sm:rounded-lg">
+    <table class="min-w-full">
+      <thead class="bg-gray-50 dark:bg-gray-700">
+        <tr>
+          <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Plan
+          </th>
+          <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Price
+          </th>
+          <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Features
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Repeat for each plan -->
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            Basic
+          </td>
+          <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+            $9.99/month
+          </td>
+          <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+            Feature 1, Feature 2, Feature 3
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  
+<!-- Footer -->
+<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <span class="ml-3 text-xl">Your Company</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2020 Your Company —
+      <a href="https://twitter.com/yourcompany" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@yourcompany</a>
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a class="text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <!-- Icons for social media links -->
+        </svg>
+      </a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
