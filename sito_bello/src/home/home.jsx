@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "../index.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import Container from "./Container.jsx";
+import Jumbo from "./Jumbo.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Navbar />
-    <Container />
+    <Jumbo />
     <Footer />
   </React.StrictMode>
 );

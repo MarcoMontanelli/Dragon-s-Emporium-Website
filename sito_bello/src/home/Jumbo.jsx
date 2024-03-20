@@ -1,6 +1,6 @@
 import Carousel from "../components/Carousel";
 
-export default function Container() {
+export default function Jumbo() {
   const slides = [
     "../src/assets/img1.JPG",
     "../src/assets/img2.JPG",
