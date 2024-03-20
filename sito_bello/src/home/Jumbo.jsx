@@ -9,7 +9,7 @@ export default function Jumbo() {
   ];
   return (
     <section class="bg-center relative">
-      <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+      <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-80">
         <Carousel>
           {slides.map((s) => (
             <img src={s} />
