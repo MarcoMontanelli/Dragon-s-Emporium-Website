@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us| Dragon's Emporium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Swiper's JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="//unpkg.com/alpinejs@2" defer></script>
+  <style>
+    /* Add custom styles for the logo and rounded divs if necessary */
+    /* Hide the mobile menu by default */
+    #mobile-menu {
+      display: none;
+      width: 100%;
+      z-index: 50;
+      background-color: #18182f;
+    }
+
+    /* Show the hamburger icon only on smaller screens */
+    @media (max-width: 768px) {
+      #hamburger-icon {
+        display: block;
+      }
+
+      #desktop-menu {
+        display: none;
+      }
+    }
+
+    /* Show the full menu and hide the hamburger icon on larger screens */
+    @media (min-width: 769px) {
+      #hamburger-icon {
+        display: none;
+      }
+
+      #desktop-menu {
+        display: flex;
+      }
+    }
+
+    /* New CSS */
+    @media (min-width: 769px) {
+      #desktop-menu {
+        align-items: center;
+      }
+    }
+
+    /* Fade in/out animation */
+    .menu-animate-enter {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .menu-animate-enter-active {
+      opacity: 1;
+    }
+
+    .menu-animate-exit {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .menu-animate-exit-active {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .flex.items-center {
+      display: flex;
+      align-items: center;
+      /* This ensures vertical centering */
+    }
+
+    /* Directly within your style tag for dropdown positioning */
+    #userDropdown {
+      top: 100%;
+      /* Positions it right below the profile picture */
+      right: 0;
+      /* Aligns to the right; adjust as necessary */
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes dropOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Class for animating in */
+    .dropdown-animate-in {
+      animation: dropIn 0.3s ease forwards;
+    }
+
+    /* Class for animating out */
+    .dropdown-animate-out {
+      animation: dropOut 0.3s ease forwards;
+    }
+
+    /* Ensuring dropdown is above all */
+    #userDropdown {
+      z-index: 100;
+      /* Adjust this value as needed */
+    }
+
+    .accordion-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    /* State of accordion content when expanded */
+    .accordion-collapse.show {
+      max-height: 1000px;
+      /* Adjust based on your content's maximum possible height */
+    }
+
+    .stepper-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .stepper-content .stepper-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stepper-content .stepper-icon {
+      background-color: blue;
+      /* Use your brand color */
+      color: white;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stepper-content .stepper-img {
+      order: -1;
+      /* Image above text */
+      width: 100%;
+      max-width: 300px;
+      /* Adjust as needed */
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .stepper-content {
+        grid-template-columns: none;
+        grid-template-rows: repeat(3, auto);
+      }
+    }
+
+    .hero-section {
+      background-image: linear-gradient(to right, #191970, #000000);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .marquee p {
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .bg-blur::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      /* Regola questa altezza per adattarla al tuo design */
+      background: linear-gradient(to top, #1a1a3e, transparent);
+      border-bottom-left-radius: 25px;
+      /* Arrotonda gli angoli come desiderato */
+      border-bottom-right-radius: 25px;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-content.expanded {
+      max-height: 1000px;
+      /* Adjust as necessary */
+      transition: max-height 0.5s ease-in;
+    }
+
+    .hasImage:hover section {
+      background-color: rgba(5, 5, 5, 0.4);
+    }
+
+    .hasImage:hover button:hover {
+      background: rgba(5, 5, 5, 0.45);
+    }
+
+    #overlay p,
+    i {
+      opacity: 0;
+    }
+
+    #overlay.draggedover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    #overlay.draggedover p,
+    #overlay.draggedover i {
+      opacity: 1;
+    }
+
+    .group:hover .group-hover\:text-blue-800 {
+      color: #2b6cb0;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active in <2.1.8 */
+      {
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+#stepper [id^="step-bg-"] {
+  transition: background-color 0.5s ease;
+}
+
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen min-h-screen bg-fixed bg-center bg-cover " style="background-image: url('background.webp');">
+  
+
+
+  
+  <nav class="bg-[#18182f] border-[#000] dark:bg-[#18182f] sticky top-0 z-50">
+    <div class=" bg-[#18182f] max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="logo 256 256.png" class="h-8" alt="dragon Logo" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dragon's Emporium</span>
+      </a>
+      <div class="flex md:order-2 bg-[#18182f] ">
+        <!-- Hamburger icon -->
+        <button id="hamburger-icon" type="button"
+          class="md:hidden text-white dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <span class="sr-only">Open main menu</span>
+        </button>
+
+        <!-- Desktop menu -->
+        <div id="desktop-menu" class="relative hidden md:block bg-[#18182f]">
+          <!-- Menu items go here -->
+          <ul
+            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-[#18182f] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#18182f] dark:bg-[#18182f] md:dark:bg-[#18182f] dark:border-gray-700">
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">shop</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">commissions</a>
+            </li>
+            <li>
+              <a href="sudinoi for real.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">about
+                us</a>
+            </li>
+          </ul>
+
+          <form class="ml-4">
+            <label for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-6 h-4 text-white dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+              </div>
+              <input type="search" id="default-search"
+                class="block w-full p-4 ps-12 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cerca..." required>
+              <button type="submit" style="margin-left: 10px;"
+                class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            </div>
+          </form>
+        </div>
+        <div class="relative ml-4 flex items-center"> <!-- Added for alignment and positioning -->
+          <div class="relative inline-flex items-center">
+            <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
+              data-dropdown-placement="bottom-start"
+              class="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300" src="logo 256 256.png"
+              alt="User dropdown">
+            <span
+              class="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-800">!</span>
+          </div>
+          <!-- Dropdown Menu -->
+          <div id="userDropdown"
+            class=" hidden absolute mt-2 bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+            style="z-index: 100;">
+            <!-- Dropdown content -->
+            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+              <div>Bonnie Green</div>
+              <div class="font-medium truncate">name@flowbite.com</div>
+            </div>
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+            </ul>
+            <div class="py-1">
+              <a href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                out</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="bg-[#18182f] relative hidden md:block transition-all ease-out duration-300">
+      <!-- Menu items go here -->
+      <ul
+        class="bg-[#18182f] flex flex-col p-4 md:p-0 mt-4 font-medium border border-[#18182f] rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#18182f] dark:bg-gray-800 md:dark:bg-[#18182f] dark:border-gray-700">
+        <li>
+          <a href="#"
+            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">shop</a>
+        </li>
+        <li>
+          <a href="#"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
+        </li>
+        <li>
+          <a href="#"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">commissions</a>
+        </li>
+        <li>
+          <a href="#"
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">about
+            us</a>
+        </li>
+      </ul>
+      <form class="bg-[#18182f] mt-4">
+        <label for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+          </div>
+          <input type="search" id="default-search"
+            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Mockups, Logos..." required>
+          <button type="submit"
+            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+      </form>
+
+    </div>
+    </div>
+  </nav>
+
+  <section class="mt-3">
+    <div class=" px-4 mx-auto max-w-screen-xl text-center ">
+      <h1
+        class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Commission request form</h1>
+      <p class=" text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Fill this form to get a quote and to submit a commission request.</p>
+      <p class=" text-sm font-normal text-gray-600 dark:text-gray-400">Keep in mind that we aren't always open for commissions and we can choose to not take it</p>
+      <p class=" mb-2 text-lg font-bold text-white ">You can also contact us directly on our socials</p>
+      <div class="flex justify-center space-x-4">
+        <button type="button" data-te-ripple-init data-te-ripple-color="light"
+          class="mb-2 flex items-center rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="mr-2 h-4 w-4">
+            <path fill="white" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path> </svg>
+          Discord server
+        </button>
+
+        <!-- Twitter -->
+        <button type="button" data-te-ripple-init data-te-ripple-color="light"
+          class="mb-2 flex items-center rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="mr-2 h-4 w-4">
+            <path fill="white"
+            d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z" />
+          </svg>
+          Telegram
+        </button>
+
+        <!-- Google -->
+        <button type="button" data-te-ripple-init data-te-ripple-color="light"
+          class="mb-2 flex items-center rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" class="mr-2 h-4 w-4">
+            <path fill="currentColor"
+              d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+          </svg>
+          Google
+        </button>
+
+        <!-- Instagram -->
+        <button type="button" data-te-ripple-init data-te-ripple-color="light"
+          class="mb-2 flex items-center rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mr-2 h-4 w-4">
+            <path fill="currentColor"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+          </svg>
+          Instagram
+        </button>
+
+        <!-- Aggiungi altri bottoni per i social qui -->
+      </div>
+    </div>
+  </section>
+  <main class="flex-grow">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Stepper Section -->
+        <!-- ... your existing stepper code ... -->
+        <div class="lg:w-1/4">
+          <ol class="overflow-hidden space-y-8" x-ref="stepper">
+            <!-- Step 1 with Custom Icon -->
+            <li class="relative">
+              <p class=" text-xl font-bold text-white ">Submission status</p>
+            </li>
+            <li class="relative">
+              <div class="flex items-center">
+                <div id="step-bg-1" class="bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full overflow-hidden">
+                  <svg class="w-4 h-4 fill-white" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SVG Path for Step 1 -->
+                    <path
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-white text-sm  font-semibold">Personal Info</h4>
+                  <p class="text-xs text-gray-500">Just your personal information</p>
+                </div>
+              </div>
+            </li>
+            <!-- Step 2 with Custom Icon -->
+            <li class="relative">
+              <div class="flex items-center">
+                <div id="step-bg-2" class="bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full overflow-hidden">
+                  <svg class="w-4 h-4 fill-gray-800" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SVG Path for Step 2 -->
+                    <path
+                      d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-white text-sm font-semibold">Reference sheet image</h4>
+                  <p class="text-xs text-gray-500">your character image</p>
+                </div>
+              </div>
+            </li>
+            <!-- Step 3 with Custom Icon -->
+            <li class="relative">
+              <div class="flex items-center">
+                <div id="step-bg-3" class="bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full overflow-hidden">
+                  <svg class="w-4 h-4 fill-gray-800" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SVG Path for Step 3 -->
+                    <path
+                      d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-white text-sm font-semibold">Message</h4>
+                  <p class="text-xs text-gray-500">A description of your character and other requests</p>
+                </div>
+              </div>
+            </li>
+           
+          </ol>
+        
+        </div>
+
+        <div x-data="formSlider()" x-init="init()" class="flex-1 space-y-4 overflow-hidden">
+          <div class="flex transition-transform duration-700" style="width: 300%;" x-ref="slider">
+            <!-- Step 1: Personal Information -->
+            <div class="step-form flex-none w-full transition duration-700 ease-in-out transform"
+              style="flex-shrink: 0; width: 33.333333%;">
+              <div class="bg-gradient-to-tl from-slate-900 via-gray-800 to-slate-600 shadow-3xl rounded-lg p-8">
+                <h3 class="text-xl font-bold mb-2 text-white">Let's start by gathering your info</h3>
+                <p class="text-xs text-gray-400 mb-2">This step is mandatory, we need your information so we can get in
+                  touch with you</p>
+                <div class="mb-4">
+                  <label for="name" class="block mb-2 text-sm font-medium text-white">Name</label>
+                  <input type="text" id="name"
+                    class="bg-gray-600 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                    required>
+                </div>
+                <div class="mb-4">
+                  <label for="surname" class="block mb-2 text-sm font-medium text-white">Surname</label>
+                  <input type="text" id="surname"
+                    class="bg-gray-600 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                    required>
+                </div>
+                <div class="mb-4">
+                  <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
+                  <input type="email" id="email"
+                    class="bg-gray-600 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                    required>
+                </div>
+                <div class="mb-4">
+                  <label for="phone" class="block mb-2 text-sm font-medium text-white">Phone Number</label>
+                  <input type="tel" id="phone"
+                    class="bg-gray-600 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                    required>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Step 2: Account Information -->
+            <div class="step-form flex-none w-full transition duration-700 ease-in-out transform"
+              style="flex-shrink: 0; width: 33.333333%;">
+              <div class="bg-gradient-to-tl from-slate-900 via-gray-800 to-slate-600 shadow-xl rounded-lg p-8">
+                <h3 class="text-xl font-bold mb-2 text-white">Upload images</h3>
+                <p class="text-xs text-gray-400 mb-2">This step is mandatory, you should upload a reference sheet for
+                  your
+                  character or an image that represents it</p>
+                <div class="flex items-center justify-center w-full">
+                  <label for="hidden-input"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 dark:hover:border-gray-500">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                      <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                      </svg>
+                      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                          upload</span> or drag and drop</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    </div>
+                    <input id="hidden-input" type="file" multiple class="hidden" onchange="filesSelected(this.files)" />
+                  </label>
+                </div>
+                <ul id="gallery" class="flex flex-1 flex-wrap -m-1 mt-4">
+                  <div class="flex flex-1 flex-wrap -m-1">
+                    <li id="empty" class="relative h-full w-full text-center flex flex-col items-center justify-center">
+                      <!-- Container for SVGs -->
+                      <div class="relative w-[50px] h-[50px]">
+                        <!-- Main SVG -->
+                        <svg class="absolute w-full h-full fill-[#8e8e8e]" viewBox="0 0 640 512"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M352 124.5l-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4L294.4 28.8c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0H416h32 16c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8c0 26.5-21.5 48-48 48H538.5c-17 0-33.3-6.7-45.3-18.7L480 160H448v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1C640 462.9 590.9 512 530.2 512H496 432 32.3c-3.3 0-6.6-.4-9.6-1.4C13.5 507.8 6 501 2.4 492.1C1 488.7 .2 485.2 0 481.4c-.2-3.7 .3-7.3 1.3-10.7c2.8-9.2 9.6-16.7 18.6-20.4c3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1c0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V181.5v-57zM512 72.3c0-.1 0-.2 0-.3s0-.2 0-.3v.6zm-1.3 7.4L464.3 68.1c-.2 1.3-.3 2.6-.3 3.9c0 13.3 10.7 24 24 24c10.6 0 19.5-6.8 22.7-16.3zM130.9 116.5c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7L171 232.3 18.4 255.8c-7 1.1-13.9-2.6-16.9-9s-1.5-14.1 3.8-18.8L130.9 116.5z">
+                          </path>
+                        </svg>
+                        <!-- Small SVG Icon on top left corner -->
+                        <svg class="absolute w-5 h-5 fill-[#8e8e8e]" viewBox="0 0 512 512"
+                          style="top: -0.5rem; right: -0.9rem;" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z">
+                          </path>
+                        </svg>
+                      </div>
+                      <span class="text-small text-gray-500">No files selected</span>
+                    </li>
+
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div class="step-form flex-none w-full transition duration-700 ease-in-out transform"
+              style="flex-shrink: 0; width: 33.333333%;">
+              <div class="bg-gradient-to-tl from-slate-900 via-gray-800 to-slate-600 shadow-xl rounded-lg p-8">
+                <h3 class="text-xl font-bold mb-2 text-white">Write a message</h3>
+                <p class="text-xs text-gray-400 mb-2">This step is mandatory, Write a message with your request</p>
+                <div class="mb-4">
+                  <label for="message" class="block mb-2 text-sm font-medium text-gray-700 text-white">Your
+                    Message</label>
+                  <textarea id="message" rows="4"
+                    class="bg-gray-600 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                    required></textarea>
+                </div>
+              </div>
+              <!-- Similar navigation buttons as previous steps, adjust for final step -->
+
+            </div>
+
+          </div>
+          <div class="flex justify-between items-center">
+            <button @click="prevSlide()" x-show="activeSlide > 0" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Previous</button>
+            <button @click="nextSlide()" x-show="activeSlide < slides.length - 1" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Next</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    
+    document.getElementById("button").onclick = () => document.getElementById("hidden-input").click();
+
+    function filesSelected(files) {
+      const gallery = document.getElementById("gallery");
+      const empty = document.getElementById("empty");
+      empty.style.display = "none"; // Hide the 'No files selected' message
+
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const li = document.createElement("li");
+          li.className = "p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/8 fade-enter-active";
+          li.innerHTML = `
+                <div class="group relative shadow-sm rounded-md">
+                    <img src="${e.target.result}" alt="${file.name}" class="w-full h-full object-cover rounded-md">
+                    <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100">
+                        <button class="delete focus:outline-none hover:bg-gray-300 p-1 rounded-md text-white">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            `;
+          li.querySelector(".delete").addEventListener("click", function () {
+            li.classList.add('fade-leave-active');
+            li.classList.remove('fade-enter-active');
+            setTimeout(() => {
+              li.remove();
+              if (gallery.children.length <= 1) { // Only the 'empty' li is left
+                empty.style.display = "flex";
+              }
+            }, 500); // Matches the duration of the fade effect
+          });
+          gallery.insertBefore(li, gallery.firstChild);
+          setTimeout(() => li.classList.remove('fade-enter'), 0);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function clearSelection() {
+      const gallery = document.getElementById("gallery");
+      while (gallery.children.length > 1) { // Keep the 'empty' li
+        const li = gallery.lastChild;
+        li.classList.add('fade-leave-active');
+        li.classList.remove('fade-enter-active');
+        setTimeout(() => {
+          li.remove();
+        }, 500); // Matches the duration of the fade effect
+      }
+      document.getElementById("empty").style.display = "flex";
+    }
+
+    function dragOverHandler(e) {
+      e.preventDefault();
+      document.getElementById("overlay").classList.add("draggedover");
+    }
+
+    function dragEnterHandler(e) {
+      e.preventDefault();
+    }
+
+    function dragLeaveHandler(e) {
+      document.getElementById("overlay").classList.remove("draggedover");
+    }
+
+    function dropHandler(e) {
+      e.preventDefault();
+      document.getElementById("overlay").classList.remove("draggedover");
+      const files = e.dataTransfer.files;
+      document.getElementById("hidden-input").files = files;
+      filesSelected(files);
+    }
+
+    document.addEventListener("dragover", dragOverHandler);
+    document.addEventListener("dragenter", dragEnterHandler);
+    document.addEventListener("dragleave", dragLeaveHandler);
+    document.addEventListener("drop", dropHandler);
+  </script>
+
+
+
+
+
+
+
+
+  <footer class="mt-auto bg-[#18182f] dark:bg-gray-900">
+    <div class="bg-[#18182f] mx-auto w-full  p-4 py-6 lg:py-8">
+      <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="index.html" class="flex items-center">
+            <img src="logo 256 256.png" class="h-8 me-3" alt="FlowBite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dragon's
+              Emporium</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">RESOURCES</h2>
+            <ul class="text-white dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a href="https://flowbite.com/" class="hover:underline">Guide</a>
+              </li>
+              <li>
+                <a href="https://tailwindcss.com/" class="hover:underline">Documentation</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
+            <ul class="text-white dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Who are we?</a>
+              </li>
+              <li>
+                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Contacts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <span class="text-sm text-white sm:text-center dark:text-gray-400">Dragon's Emporium 2023-2024
+        </span>
+        <div class="flex mt-4 sm:justify-center sm:mt-0">
+
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg fill="currentColor" class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32">
+              <path
+                d="M32 6v20c0 1.135-0.865 2-2 2h-2v-18.151l-12 8.62-12-8.62v18.151h-2c-1.135 0-2-0.865-2-2v-20c0-0.568 0.214-1.068 0.573-1.422 0.359-0.365 0.859-0.578 1.427-0.578h0.667l13.333 9.667 13.333-9.667h0.667c0.568 0 1.068 0.214 1.427 0.578 0.359 0.354 0.573 0.854 0.573 1.422z" />
+            </svg>
+            <span class="sr-only">New SVG Icon</span>
+          </a>
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 21 16">
+              <path
+                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+            </svg>
+            <span class="sr-only">Discord community</span>
+          </a>
+
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var hamburgerIcon = document.getElementById('hamburger-icon');
+      var mobileMenu = document.getElementById('mobile-menu');
+
+      hamburgerIcon.addEventListener('click', function () {
+        const isMenuOpen = mobileMenu.classList.contains('menu-animate-enter-active');
+        if (!isMenuOpen) {
+          mobileMenu.classList.remove('menu-animate-exit', 'menu-animate-exit-active');
+          mobileMenu.style.display = 'block';
+          requestAnimationFrame(() => {
+            mobileMenu.classList.add('menu-animate-enter', 'menu-animate-enter-active');
+          });
+        } else {
+          mobileMenu.classList.remove('menu-animate-enter', 'menu-animate-enter-active');
+          mobileMenu.classList.add('menu-animate-exit');
+          setTimeout(() => {
+            mobileMenu.classList.add('menu-animate-exit-active');
+            mobileMenu.style.display = 'none';
+          }, 500); // Match the CSS transition time
+        }
+      });
+    });
+
+
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatarButton = document.getElementById('avatarButton');
+      const userDropdown = document.getElementById('userDropdown');
+
+      avatarButton.addEventListener('click', () => {
+        const isDropdownVisible = !userDropdown.classList.contains('hidden');
+        if (isDropdownVisible) {
+          userDropdown.classList.add('dropdown-animate-out');
+          setTimeout(() => {
+            userDropdown.classList.add('hidden');
+            userDropdown.classList.remove('dropdown-animate-out');
+          }, 300); // Match animation duration
+        } else {
+          userDropdown.classList.remove('hidden');
+          userDropdown.classList.add('dropdown-animate-in');
+        }
+      });
+
+      // Optional: Click outside to close with animation
+      window.addEventListener('click', (e) => {
+        if (!avatarButton.contains(e.target) && !userDropdown.contains(e.target) && !userDropdown.classList.contains('hidden')) {
+          userDropdown.classList.add('dropdown-animate-out');
+          setTimeout(() => {
+            userDropdown.classList.add('hidden');
+            userDropdown.classList.remove('dropdown-animate-out');
+          }, 300); // Match animation duration
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-accordion-target]').forEach(button => {
+        button.addEventListener('click', function () {
+          const accordionContent = document.querySelector(button.getAttribute('data-accordion-target'));
+
+          // Check if the accordion is opening or closing
+          const isExpanded = !accordionContent.classList.contains('show');
+          button.setAttribute('aria-expanded', isExpanded);
+
+          if (isExpanded) {
+            // Opening the accordion
+            accordionContent.style.display = 'block';
+            let accHeight = accordionContent.clientHeight + "px";
+
+            // Temporarily disable the transition, set max-height to 0, then re-enable the transition
+            accordionContent.style.transition = "none";
+            accordionContent.style.maxHeight = "0";
+            accordionContent.offsetHeight; // Force repaint to ensure the transition is applied correctly
+            accordionContent.style.transition = "max-height 0.3s ease-out";
+
+            // After the above setup, set max-height to the client height so it expands
+            accordionContent.style.maxHeight = accHeight;
+            accordionContent.classList.add('show');
+          } else {
+            // Closing the accordion
+            accordionContent.style.maxHeight = "0";
+            accordionContent.addEventListener('transitionend', function () {
+              accordionContent.style.display = '';
+              accordionContent.classList.remove('show');
+            }, { once: true });
+          }
+
+          // Rotate the icon
+          const icon = button.querySelector('[data-accordion-icon]');
+          icon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      });
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.btn-change').forEach(button => {
+      button.addEventListener('click', function () {
+        document.querySelector('.dynamic-text').textContent = this.textContent;
+      });
+    });
+  </script>
+  <script>
+    function testimonialsSlider() {
+      return {
+        activeSlide: 0,
+        slides: [
+          [
+            { img: "AWZUFFI.jpg", name: "Arzuffi Simone, guardia di finanza", rating: 4, text: "\"This site goes hard, however I would suggest adding a contravvenzione section\"" },
+            { img: "imagebonny.png", name: "ingegner Giorgio Bonacina", rating: 5, text: "\"napoli\"" },
+            { img: "don pollo.jpg", name: "Marco Montanelli, professional yapper", rating: 3, text: "\"osti furry\"" },
+          ],
+          [
+            { img: "cas.PNG", name: "Pasquale Caso, rspp", rating: 4, text: "\"peiton\"" },
+            { img: "tod.PNG", name: "Todeschini Paolo, Sportista", rating: 5, text: "\"cazzo\"" },
+            { img: "tasc.jpg", name: "Lorenzo Tasca, cestista", rating: 3, text: "\"Ball\"" },
+          ]
+          // Aggiungi altre slide se necessario
+        ],
+
+        nextSlide() {
+          this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+          this.updateSliderPosition();
+        },
+
+        prevSlide() {
+          this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+          this.updateSliderPosition();
+        },
+
+        updateSliderPosition() {
+          const slider = document.querySelector('[x-ref="slider"]');
+          const slideWidth = slider.clientWidth;
+          const offset = -(this.activeSlide * slideWidth);
+          slider.style.transform = `translateX(${offset}px)`;
+        }
+      };
+    }
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle-faq').forEach(button => {
+        button.addEventListener('click', () => {
+          const faqContent = button.nextElementSibling;
+
+          if (faqContent.classList.contains('expanded')) {
+            faqContent.classList.remove('expanded');
+            faqContent.style.maxHeight = null;
+          } else {
+            // Close any already open FAQ items
+            document.querySelectorAll('.faq-content.expanded').forEach(openItem => {
+              openItem.classList.remove('expanded');
+              openItem.style.maxHeight = null;
+            });
+
+            faqContent.classList.add('expanded');
+            faqContent.style.maxHeight = faqContent.scrollHeight + "px";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+<script src="//unpkg.com/alpinejs" defer></script>
+<script>
+  function formSlider() {
+  return {
+    activeSlide: 0,
+    slides: [1, 2, 3],
+
+    nextSlide() {
+      if (this.activeSlide < this.slides.length - 1) {
+        this.activeSlide++;
+        this.updateSliderPosition();
+        this.updateStepper();
+      }
+    },
+
+    prevSlide() {
+      if (this.activeSlide > 0) {
+        this.activeSlide--;
+        this.updateSliderPosition();
+        this.updateStepper();
+      }
+    },
+
+    updateSliderPosition() {
+      const slider = this.$refs.slider;
+      const slideWidth = slider.offsetWidth / this.slides.length;
+      const offset = -(this.activeSlide * slideWidth);
+      slider.style.transform = `translateX(${offset}px)`;
+    },
+
+    updateStepper() {
+  for (let i = 1; i <= this.slides.length; i++) {
+    const stepBg = document.getElementById(`step-bg-${i}`);
+    if (i <= this.activeSlide + 1) { // +1 because step index starts at 1, but activeSlide starts at 0
+      stepBg.classList.replace('bg-gray-200', 'bg-blue-600');
+      stepBg.querySelector('svg').classList.replace('fill-gray-800', 'fill-white');
+    } else {
+      stepBg.classList.replace('bg-blue-600', 'bg-gray-200');
+      stepBg.querySelector('svg').classList.replace('fill-white', 'fill-gray-800');
+    }
+  }
+}
+,
+
+    init() {
+      this.updateSliderPosition();
+      this.updateStepper();
+    },
+  };
+}
+</script>
+<script></script>
+</html>
