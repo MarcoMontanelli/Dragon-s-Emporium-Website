@@ -74,36 +74,24 @@ const articles = [
         description: "Creative and budget-friendly home decor ideas you can DIY.",
         link: "/post-8"
     },
-    {
-        id: 9,
-        category: "Business",
-        date: "March 28, 2024",
-        imageUrl: "https://via.placeholder.com/150/810b14",
-        title: "Starting a Small Business in 2024",
-        description: "What you need to know about starting a business in today's economic climate.",
-        link: "/post-9"
-    },
-    {
-        id: 10,
-        category: "Culture",
-        date: "March 25, 2024",
-        imageUrl: "https://via.placeholder.com/150/1ee8a4",
-        title: "Cultural Trends to Watch",
-        description: "Upcoming cultural shifts that are defining 2024.",
-        link: "/post-10"
-    }
+    
 ];
 
 
 const BlogArticleGrid = () => {
     return (
-        <div className=" text-white p-5">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:px-16">
+        <div>
+            <h1 className=" text-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">related articles</h1>
+            <div className=" text-white  ml-4 mr-4 mt-2 mb-4 ">
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:pl-12 md:pr-12 ">
                 {articles.map((article) => (
                     <BlogArticle key={article.id} {...article} />
                 ))}
             </div>
         </div>
+        </div>
+        
     );
 }
 

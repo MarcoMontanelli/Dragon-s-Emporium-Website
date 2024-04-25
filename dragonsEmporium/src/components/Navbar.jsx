@@ -134,7 +134,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <nav className="bg-purple-950">
+      <nav className="bg-slate-900">
         <div className="flex flex-wrap lg:flex items-center justify-between mx-auto p-5 lg:p-4">
           <DragonLogo />
           {/*BLOG DESKTOP*/}
