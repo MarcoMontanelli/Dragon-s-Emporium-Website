@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-globe": "^2.0.1",
     "react-globe.gl": "^2.27.2",
+    "save-dev": "^0.0.1-security",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.2"
   },
