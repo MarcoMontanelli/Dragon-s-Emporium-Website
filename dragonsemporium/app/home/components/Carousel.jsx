@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 export default function Carousel({ children: slides }) {
@@ -11,7 +9,7 @@ export default function Carousel({ children: slides }) {
   useEffect(() => {
     const slideInterval = setInterval(next, 5000);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, [curr]);
   return (
     <div className="invisible lg:visible -z-20 max-h-full  overflow-hidden absolute top-0 left-0">
       <div
