@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+    @apply hover:bg-white
+    focus:ring-4 focus:outline-none 
+    focus:ring-violet-500
+    md:font-semibold rounded-lg md:text-sm 
+    px-1 md:px-5 py-2.5 text-center 
+    inline-flex items-center;
+}
+h1,p,a,button{
+    @apply text-white;
+}
+

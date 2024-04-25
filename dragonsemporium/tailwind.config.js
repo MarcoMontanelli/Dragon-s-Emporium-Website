@@ -1,18 +1,22 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./*.html",
+    "./src/**/*.jsx"
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+      colors: {
+        'parpol' : '#1a1a3e',
+        'electric-violet' : '#8F00FF',
+        'rich-black': '#00171F',
+        'white' : '#FFFFFF',  // Note: Defining 'white' here is not necessary unless you want a custom shade because Tailwind already includes 'white' by default
+        'space-cadet' : '#25283D',
+        'blackk' : '#181A1B',  // Note: Similarly, 'black' is also predefined; ensure your custom color name does not conflict with default names
+        'grigino': '#CDCDCD'
+      }
+    }
   },
   plugins: [],
-};
+}
+
