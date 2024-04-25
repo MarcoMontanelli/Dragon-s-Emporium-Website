@@ -117,7 +117,7 @@ function MainMenu({ handle }) {
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const [mIsOpen, setMOpen] = useState(Array(2).fill(false));
-  const [sameI, setSameI] = useState(null);
+  //const [sameI, setSameI] = useState(null);
   function handleDropDown() {
     console.log("piero angela");
     setOpen(!isOpen);

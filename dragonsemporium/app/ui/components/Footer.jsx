@@ -1,11 +1,11 @@
-import {DragonLogo} from "./Navbar";
-
+import { DragonLogo } from "./Navbar";
+import Link from "next/link";
 function FooterLink({ value, link }) {
   return (
     <li class="mb-4 text-white">
-      <a href={link} class="hover:underline">
+      <Link href={link} class="hover:underline">
         {value}
-      </a>
+      </Link>
     </li>
   );
 }
@@ -24,8 +24,8 @@ export default function Footer() {
                 Resources
               </h2>
               <ul class="text-white font-medium">
-                <FooterLink value="Docs" link="#"/>
-                <FooterLink value="Patterns" link="#"/>
+                <FooterLink value="Docs" link="#" />
+                <FooterLink value="Patterns" link="#" />
               </ul>
             </div>
             <div>
@@ -52,13 +52,13 @@ export default function Footer() {
         <div class="flex-cols text-center lg:flex justify-between">
           <span class="text-sm text-white">
             2024{" "}
-            <a href="/" class="hover:underline">
+            <Link href="/" class="hover:underline">
               Dragon's Emporium.
-            </a>
+            </Link>
           </span>
           <div class="flex relative left-7 lg:left-0  mt-4 lg:mt-0">
             {/*DISCORD*/}
-            <a
+            <Link
               href="https://discord.gg/vWcnNUQtxM"
               class="text-white hover:text-blackk ms-5"
             >
@@ -72,9 +72,9 @@ export default function Footer() {
                 <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
               </svg>
               <span class="sr-only">Discord community</span>
-            </a>
+            </Link>
             {/*TWITTER*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 className="w-4 h-4"
                 viewBox="0 0 1200 1227"
@@ -88,9 +88,9 @@ export default function Footer() {
               </svg>
 
               <span class="sr-only">Twitter page</span>
-            </a>
+            </Link>
             {/*GITHUB*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 class="w-4 h-4"
                 aria-hidden="true"
@@ -105,9 +105,9 @@ export default function Footer() {
                 />
               </svg>
               <span class="sr-only">GitHub account</span>
-            </a>
+            </Link>
             {/*INSTAGRAM*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 className="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -122,9 +122,9 @@ export default function Footer() {
                 />
               </svg>
               <span class="sr-only">Instagram account</span>
-            </a>
+            </Link>
             {/*REDDIT*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 className="w-8 h-8"
                 xmlns="http://www.w3.org/2000/svg"
@@ -157,9 +157,9 @@ export default function Footer() {
                 />
               </svg>
               <span class="sr-only">Reddit account</span>
-            </a>
+            </Link>
             {/*YOUTUBE*/}
-            <a
+            <Link
               href="https://www.youtube.com/@Dragon-s-Emporium"
               class="text-white hover:text-blackk ms-5"
             >
@@ -176,9 +176,9 @@ export default function Footer() {
                 </g>
               </svg>
               <span class="sr-only">Youtube</span>
-            </a>
+            </Link>
             {/*TIKTOK*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 className="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -190,9 +190,9 @@ export default function Footer() {
                   d="M295.74,79.91c-21.48-14-36.97-36.41-41.81-62.52-1.04-5.64-1.62-11.45-1.62-17.39h-68.54l-.11,274.68c-1.15,30.76-26.47,55.45-57.5,55.45-9.65,0-18.73-2.41-26.73-6.62-18.34-9.65-30.89-28.87-30.89-50.99,0-31.77,25.85-57.62,57.61-57.62,5.93,0,11.62,.98,17,2.66v-69.97c-5.57-.76-11.23-1.23-17-1.23C56.59,146.36,0,202.95,0,272.52c0,42.68,21.32,80.45,53.86,103.29,20.49,14.39,45.42,22.86,72.3,22.86,69.56,0,126.15-56.59,126.15-126.15V133.23c26.88,19.29,59.82,30.66,95.36,30.66V95.35c-19.14,0-36.97-5.69-51.93-15.44Z"
                 />
               </svg>
-            </a>
+            </Link>
             {/*TELEGRAM*/}
-            <a href="#" class="text-white hover:text-blackk ms-5">
+            <Link href="#" class="text-white hover:text-blackk ms-5">
               <svg
                 className="w-6 h-6"
                 viewBox="100 130 1000 1000"
@@ -207,8 +207,7 @@ export default function Footer() {
                 ></path>
               </svg>
               <span class="sr-only">Telegram</span>
-            </a>
-            
+            </Link>
           </div>
         </div>
       </div>

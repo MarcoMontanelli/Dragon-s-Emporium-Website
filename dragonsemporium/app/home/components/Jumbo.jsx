@@ -1,6 +1,6 @@
 import Carousel from "./Carousel";
 import React from 'react';
-
+import Link from "next/link";
 function importAll(r) {
   let images = [];
   r.keys().map((item) => {
@@ -37,7 +37,7 @@ export default function Jumbo() {
           wanted to have, we’re here to make that wish come true.
         </p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 lg:grid lg:grid-cols-4 lg:gap-4 lg:space-x-0 w-full px-4 sm:px-0">
-          <a
+          <Link
             href="#"
             class="flex shadow-xl shadow-indigo-700/50 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-indigo-500 bg-gradient-to-r from-indigo-950 via-purple-950 to-fuchsia-950 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full"
           >
@@ -51,8 +51,8 @@ export default function Jumbo() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             class="flex shadow-xl shadow-indigo-700/50 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-indigo-500 bg-gradient-to-r from-indigo-950 via-purple-950 to-fuchsia-950 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full"
           >
@@ -66,8 +66,8 @@ export default function Jumbo() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             class="flex shadow-xl shadow-indigo-700/50 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-indigo-500 bg-gradient-to-r from-indigo-950 via-purple-950 to-fuchsia-950 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full"
           >
@@ -81,8 +81,8 @@ export default function Jumbo() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             class="flex shadow-xl shadow-indigo-700/50 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-indigo-500 bg-gradient-to-r from-indigo-950 via-purple-950 to-fuchsia-950 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-full"
           >
@@ -96,7 +96,7 @@ export default function Jumbo() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
