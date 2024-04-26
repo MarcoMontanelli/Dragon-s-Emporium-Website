@@ -1,0 +1,32 @@
+.pre-container {
+margin-top: -1px;
+}
+
+.code-area {
+  margin: 0;
+  padding: 1em; /* Adjust padding as needed */
+}
+
+.text-function {
+  color: #c586c0; /* Replace with the desired color for functions */
+}
+
+.text-class {
+  color: #4EC9B0; /* Replace with the desired color for classes */
+}
+
+.text-keyword {
+  color: #569CD6; /* Replace with the desired color for keywords */
+}
+
+.text-string {
+  color: #CE9178; /* Replace with the desired color for strings */
+}
+
+.text-comment {
+  color: #6A9955; /* Replace with the desired color for comments */
+}
+
+.text-variable {
+  color: #9CDCFE; /* Replace with the desired color for variables */
+}

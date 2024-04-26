@@ -1,0 +1,17 @@
+.swiper-container {
+    overflow: hidden;
+    position: relative;
+    padding: 0 16px; /* or any other value depending on your design */
+}
+
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-out;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: calc(100% / 3); /* Adjust based on slides per view */
+    padding: 10px; /* Ensures padding around slides */
+    box-sizing: border-box;
+}
