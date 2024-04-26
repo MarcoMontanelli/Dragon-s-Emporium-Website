@@ -118,7 +118,6 @@ const Page = () => {
 &lt;/div&gt;
 &lt;/dl&gt;
 </code></pre>
-         ------------------------------------------------------------------------cv
           <h4>Table example</h4>
           <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
           </p>
