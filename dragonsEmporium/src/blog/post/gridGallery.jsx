@@ -1,57 +1,56 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
-const GridGalleryOne = () => {
+const articles = [
+  {
+    id: 1,
+    image: 'https://via.placeholder.com/320x180',
+    category: 'Technology',
+    date: 'April 28, 2024',
+    title: 'Exploring the Future of Tech Innovations',
+    description: 'A deep dive into upcoming technological innovations that could shape the future.',
+    commentsCount: 12,
+  },
+  // Add more articles as needed
+];
 
-    return (
-        <div class=" grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-
-            <a 
-                class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-                <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
+const RelatedArticles = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map(article => (
+          <motion.div
+            key={article.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 * article.id }}
+            className="bg-white shadow-lg rounded-lg overflow-hidden"
+          >
+            <img className="w-full h-44 object-cover object-center" src={article.image} alt={article.title} />
+            <div className="p-4">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-indigo-600">{article.category}</span>
+                <span>{article.date}</span>
+              </div>
+              <h3 className="mt-2 font-bold">{article.title}</h3>
+              <p className="mt-2 text-gray-600">{article.description}</p>
+              <div className="flex justify-between items-center mt-4">
+                <button className="text-blue-600 hover:text-blue-800 transition duration-300">Open Article</button>
+                <div>
+                  <button className="text-gray-600 hover:text-gray-800 transition duration-300 mr-2">
+                    Share
+                  </button>
+                  <button className="text-gray-600 hover:text-gray-800 transition duration-300">
+                    {article.commentsCount} Comments
+                  </button>
                 </div>
-
-                <span class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">VR</span>
-            </a>
-
-            <a 
-                class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-                <img src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000" loading="lazy" alt="Photo by Magicle" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-                <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
-                </div>
-
-                <span class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">Tech</span>
-            </a>
-
-            <a 
-                class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-                <img src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000" loading="lazy" alt="Photo by Martin Sanchez" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-                <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
-                </div>
-
-                <span class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">Dev</span>
-            </a>
-
-            <a
-                class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Lorenzo Herrera" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-                <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
-                </div>
-
-                <span class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">Retro</span>
-            </a>
-
-        </div>
-    );
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default GridGalleryOne;
+export default RelatedArticles;

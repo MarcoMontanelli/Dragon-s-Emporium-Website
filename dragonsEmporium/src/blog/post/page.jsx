@@ -4,7 +4,18 @@ import Iframe from "./videoIframe.jsx";
 import CodeArea from "./codeArea.jsx";
 import ImageText from "./imageText.jsx";
 import ImageViewer from "./imageOne.jsx";
-import GridGalleryOne from "./gridGallery.jsx";
+import ImageGallery from "./gallery.jsx"
+import Breadcrumbs from './Breadcrumb.jsx';
+
+const directories = [
+    {
+      name: 'Home',
+      url: '#',
+      icon: 'm19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z',
+    },
+    { name: 'Projects', url: '#projects' },
+    { name: 'Flowbite', url: '#flowbite', current: true }
+  ];
 const codeString = `#!/usr/bin/env python3
 
 from rpi_ws281x import PixelStrip, Color
@@ -90,16 +101,20 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         blackout(strip1)
         blackout(strip2)`;
+
+        
+        
 const Page = () => {
     return (
         <>
            
 
-<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
+<main class="pt-4 pb-8 antialiased">
   <div class="flex justify-between px-4 mx-auto ">
       <article class="mx-auto w-full max-w-7xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+
           <header class="mb-4 lg:mb-6 not-format">
-              
+              <Breadcrumbs directories={directories} />
               <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
               <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful prototypes</h1>
           </header>
@@ -113,6 +128,7 @@ const Page = () => {
                   Flowbite</a>. It comes with the most commonly used UI components, such as buttons, navigation
               bars, cards, form elements, and more which are conveniently built with the utility classes from
               Tailwind CSS.</p>
+              
           <ImageViewer src="../../src/assets/img1.JPG"/>
           <h2>Getting started with Flowbite</h2>
           <p>First of all you need to understand how Flowbite works. This library is not another framework.
@@ -128,6 +144,7 @@ const Page = () => {
               you get started with your projects even faster. You can check out this <a
                   href="https://flowbite.com/docs/components/tables/">comparison table</a> to better understand
               the differences between the open-source and pro version of Flowbite.</p>
+          
           <h2>When does design come in handy?</h2>
           <p>While it might seem like extra work at a first glance, here are some key moments in which prototyping
               will come in handy:</p>
@@ -232,8 +249,9 @@ const Page = () => {
               </tbody>
           </table>
           <h3>Best practices for setting up your prototype</h3>
-          <GridGalleryOne />
+          
           <ImageText />
+          <ImageGallery />
           <p><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
               the real deal. If you’re simply preparing a quick visual aid for a presentation, a low-fidelity
               prototype — like a wireframe with placeholder images and some basic text — would be more than
@@ -253,6 +271,7 @@ const Page = () => {
           
             <Video src="../../src/assets/your_video.mp4"/>
             <Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"/>
+            
       </article>
   </div>
 </main>

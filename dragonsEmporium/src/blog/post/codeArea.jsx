@@ -84,8 +84,8 @@ const CodeArea = ({ header, code }) => {
                     )}
                 </div>
             </div>
-            <div className="pre-container">
-                <pre className="code-area text-xs text-gray-300 font-mono bg-black rounded-b-lg shadow-xl shadow-purple-700/50 overflow-x-auto">
+            <div className="pre-container mb-4">
+                <pre className="code-area text-xs text-gray-300 font-mono  bg-black rounded-b-lg shadow-xl shadow-purple-700/50 overflow-x-auto">
                     {highlightPythonSyntax(code)}
                 </pre>
             </div>

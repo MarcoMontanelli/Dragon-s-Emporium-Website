@@ -80,12 +80,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Navbar />
     <Jumbo />
    
-    <Phone />
-    
-    <VideoCardContainer cards={cardData} />
+   
     <CTATerminal />
     <ShuffleHero />
     <Shipping />
+    <Phone />
+    
+    <VideoCardContainer cards={cardData} />
     <BlogCardContainer cards={cardsData}/>
     
     
