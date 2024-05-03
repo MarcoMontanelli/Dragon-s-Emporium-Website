@@ -6,7 +6,8 @@ import ImageText from "./imageText.jsx";
 import ImageViewer from "./imageOne.jsx";
 import ImageGallery from "./gallery.jsx"
 import Breadcrumbs from './Breadcrumb.jsx';
-
+import FAQ from './Faq.jsx';
+import SocialShare from './Social.jsx';
 const directories = [
     {
       name: 'Home',
@@ -250,7 +251,7 @@ const Page = () => {
           </table>
           <h3>Best practices for setting up your prototype</h3>
           
-          <ImageText />
+          {/*<ImageText />*/}
           <ImageGallery />
           <p><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
               the real deal. If you’re simply preparing a quick visual aid for a presentation, a low-fidelity
@@ -268,10 +269,10 @@ const Page = () => {
               of your design.</p>
           <p>And there you have it! Everything you need to design and share prototypes — right in Flowbite Figma.
           </p>
-          
-            <Video src="../../src/assets/your_video.mp4"/>
+          <FAQ />
+            {/*<Video src="../../src/assets/your_video.mp4"/>*/}
             <Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"/>
-            
+            <SocialShare url="https://yourblogposturl.com" title="Awesome Blog Post" />
       </article>
   </div>
 </main>
