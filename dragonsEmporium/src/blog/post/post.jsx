@@ -36,23 +36,16 @@ const cardsData = [
     authorImage: 'https://yourdomain.com/images/authors/alice.jpg',
     date: 'Mar 15, 2024',
     readTime: '6'
-  },
-  {
-    image: '../src/assets/wireFrameDragon.png',
-    title: 'Painting eva foam',
-    description: 'Learn how to correctly paint your EVA foam props correctly and some basic maintenance',
-    author: 'Michael Brown',
-    authorImage: 'https://yourdomain.com/images/authors/michael.jpg',
-    date: 'Feb 28, 2024',
-    readTime: '4'
   }
+ 
 ];
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Navbar />
-    <Header />
+    <div className="md:block hidden"><Header /></div>
+    
     <Page />
     <BlogCardContainer cards={cardsData}/>
     <Footer />

@@ -8,14 +8,73 @@ import ImageGallery from "./gallery.jsx"
 import Breadcrumbs from './Breadcrumb.jsx';
 import FAQ from './Faq.jsx';
 import SocialShare from './Social.jsx';
+import Header from './Header.jsx';
+import Lead from './Lead.jsx';
+import HeaderTwo from './HeaderTwo.jsx';
+import Paragraph from './Paragraph.jsx';
+import ParagraphAnchor from './ParagraphAnchor.jsx';
+import ParagraphAnchorTwo from './ParagraphAnchorTwo.jsx';
+import OrderedListComponent from './OrderedList.jsx';
+import WarningSection from './WarningSection.jsx';
+import ProgressBar from './ProgressBar.jsx';
+import FloatingMenu from './FloatingMenu.jsx';
+import AuthorBox from './AuthorBox.jsx';
+import FeedbackSection from './FeedbackSection.jsx';
+import DownloadSection from './DownloadSection.jsx';
 const directories = [
     {
       name: 'Home',
       url: '#',
       icon: 'm19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z',
     },
-    { name: 'Projects', url: '#projects' },
-    { name: 'Flowbite', url: '#flowbite', current: true }
+    { name: 'Guides', url: '#projects' },
+    { name: 'Electronics', url: '#flowbite', current: true }
+  ];
+  const listItemsOne = [
+    {
+      title: 'Flat head screwdriver',
+      content: 'Prepare at least a pair of flat head screwdrivers to pry open the plastic, having different dimensions is ideal'
+    },
+    {
+      title: 'Phillips screwdriver',
+      content: 'Like the flat heads, get at least a pair of Philips head screwdrivers to unscrew the casing of your monitor'
+    },
+    {
+      title: 'Pliers (optional)',
+      content: 'Sometimes pliers are also needed to unscrew the nuts that keep the connectors atached to the casing or to disconnect the cables'
+    },
+    {
+      title: 'Cutter',
+      content: 'Grab something sharp like knife or a cutter to slice the flex cables of the lcd panel'
+    },
+    {
+        title: 'Soldering iron',
+        content: 'You need a soldering iron to solder the leds'
+      },
+      
+  ];
+  const listItemsTwo = [
+    {
+      title: 'LED strip',
+      content: 'Buy a led strip, there are different types, ideally try to get one with a high density of leds (ex. 144 LEDS/m)'
+    },
+    {
+      title: 'Solder',
+      content: 'Get some thin solder, it should ideally be lead free and it should have a rosin core '
+    },
+    {
+      title: 'L shaped aluminum channels (optional, only if you want to use the backlight as a panel)',
+      content: 'Get some L channels if you want to make a simple frame for the panel, if you want to create a backlit section for your props skip this step  '
+    },
+    {
+      title: 'Heat shrink tubing/electrical tape (crucial)',
+      content: 'Buy some to protect your connections, especially against shorting if you are making a panel'
+    },
+    {
+        title: 'PPE, gloves and mask',
+        content: 'Protect your health with the proper equipment '
+      },
+      
   ];
 const codeString = `#!/usr/bin/env python3
 
@@ -103,7 +162,12 @@ if __name__ == '__main__':
         blackout(strip1)
         blackout(strip2)`;
 
-        
+  
+        const authorInfo = {
+            name: 'File',
+            bio: 'Experienced costume maker.',
+            avatar: '../src/assets/LD.png'  // Make sure to have a valid path or URL here.
+        };
         
 const Page = () => {
     return (
@@ -113,25 +177,28 @@ const Page = () => {
 <main class="pt-4 pb-8 antialiased">
   <div class="flex justify-between px-4 mx-auto ">
       <article class="mx-auto w-full max-w-7xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-
-          <header class="mb-4 lg:mb-6 not-format">
-              <Breadcrumbs directories={directories} />
-              <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
-              <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful prototypes</h1>
-          </header>
+          <ProgressBar />
+          <FloatingMenu />
+          <Header date="2024-05-04" title="Salvaging the backlight of an old monitor for your projects" directories={directories}/>
+          <Lead content="Do you have an old/broken monitor that is lying around your office gathering dust? If the answer is yes, 
+          this guide is just for you! follow this tutorial to learn how to reuse the backlight for your projects."/>
+          <HeaderTwo content="Before we start.."/>
+          <WarningSection text="Caution (High voltage/Temperatures): Following this guide incorrectly may lead to injury or damage, follow it at your own risk. We won't take responsibility for any damage resulting from following the guide." />
+          <HeaderTwo content="Tools"/>
+          <OrderedListComponent items={listItemsOne} />
+          <HeaderTwo content="Materials"/>
+          <OrderedListComponent items={listItemsTwo} />
+          <Paragraph content="Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+              you can think things through before committing to an actual design project."/>
+          <ParagraphAnchorTwo contentB="But then I found a " anchor="https://flowbite.com" anchorText="component library based on Tailwind CSS called
+                  Flowbite" contentA=". It comes with the most commonly used UI components, such as buttons, navigation
+                  bars, cards, form elements, and more which are conveniently built with the utility classes from
+                  Tailwind CSS"/>
           
-          <p class="lead">Flowbite is an open-source library of UI components built with the utility-first
-              classes from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
-              datepickers.</p>
-          <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
-              you can think things through before committing to an actual design project.</p>
-          <p>But then I found a <a href="https://flowbite.com">component library based on Tailwind CSS called
-                  Flowbite</a>. It comes with the most commonly used UI components, such as buttons, navigation
-              bars, cards, form elements, and more which are conveniently built with the utility classes from
-              Tailwind CSS.</p>
               
           <ImageViewer src="../../src/assets/img1.JPG"/>
-          <h2>Getting started with Flowbite</h2>
+          
+          <h2 className="font-extrabold">Getting started with Flowbite</h2>
           <p>First of all you need to understand how Flowbite works. This library is not another framework.
               Rather, it is a set of components based on Tailwind CSS that you can just copy-paste from the
               documentation.</p>
@@ -149,19 +216,9 @@ const Page = () => {
           <h2>When does design come in handy?</h2>
           <p>While it might seem like extra work at a first glance, here are some key moments in which prototyping
               will come in handy:</p>
-          <ol>
-              <li><strong>Usability testing</strong>. Does your user know how to exit out of screens? Can they
-                  follow your intended user journey and buy something from the site you’ve designed? By running a
-                  usability test, you’ll be able to see how users will interact with your design once it’s live;
-              </li>
-              <li><strong>Involving stakeholders</strong>. Need to check if your GDPR consent boxes are displaying
-                  properly? Pass your prototype to your data protection team and they can test it for real;</li>
-              <li><strong>Impressing a client</strong>. Prototypes can help explain or even sell your idea by
-                  providing your client with a hands-on experience;</li>
-              <li><strong>Communicating your vision</strong>. By using an interactive medium to preview and test
-                  design elements, designers and developers can understand each other — and the project — better.
-              </li>
-          </ol>
+          
+          
+          
           <h3>Laying the groundwork for best design</h3>
           <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
               you can think things through before committing to an actual design project.</p>
@@ -272,7 +329,11 @@ const Page = () => {
           <FAQ />
             {/*<Video src="../../src/assets/your_video.mp4"/>*/}
             <Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"/>
+            <hr></hr>
             <SocialShare url="https://yourblogposturl.com" title="Awesome Blog Post" />
+            <AuthorBox author={authorInfo} />
+            <FeedbackSection />
+            <DownloadSection />
       </article>
   </div>
 </main>
