@@ -6,7 +6,7 @@ const AuthorBox = ({ author }) => {
             <h1 className="mt-1 text-center text-2xl font-extrabold  md:text-2xl lg:text-2xl text-white">
                     This article was brought to you by
                 </h1>
-            <div className=" bg-gray-800 text-white p-2 rounded-lg shadow-lg border-l-4 border-purple-400">
+            <div className=" bg-gray-900 text-white p-2 rounded-lg shadow-lg border-l-4 border-purple-400  shadow-purple-700/50 ">
                 <div className="flex items-center space-x-4">
                     <img src={author.avatar} alt={author.name} className="w-14 h-14 rounded-full border border-gray-700" />
                     <div>

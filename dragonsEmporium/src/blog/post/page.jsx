@@ -21,61 +21,71 @@ import FloatingMenu from './FloatingMenu.jsx';
 import AuthorBox from './AuthorBox.jsx';
 import FeedbackSection from './FeedbackSection.jsx';
 import DownloadSection from './DownloadSection.jsx';
+import InfoSection from './InfoSection.jsx';
+import TipsSection from './TipsSection.jsx';
+import PatronAcknowledgments from './Patron.jsx';
+import UnoredredList from './UnorderedList.jsx';
+import Poll from './Poll.jsx';
+import Blockquote from './Blockquote.jsx';
+import HeaderThree from './HeaderThree.jsx';
+import HeaderFour from './HeaderFour.jsx';
+import ResponsiveTable from './Table.jsx';
+import ProductCard from './FeaturedProduct.jsx';
 const directories = [
     {
-      name: 'Home',
-      url: '#',
-      icon: 'm19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z',
+        name: 'Home',
+        url: '#',
+        icon: 'm19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z',
     },
     { name: 'Guides', url: '#projects' },
     { name: 'Electronics', url: '#flowbite', current: true }
-  ];
-  const listItemsOne = [
+];
+const listItemsOne = [
     {
-      title: 'Flat head screwdriver',
-      content: 'Prepare at least a pair of flat head screwdrivers to pry open the plastic, having different dimensions is ideal'
+        title: 'Flat head screwdriver',
+        content: 'Prepare at least a pair of flat head screwdrivers to pry open the plastic, having different dimensions is ideal'
     },
     {
-      title: 'Phillips screwdriver',
-      content: 'Like the flat heads, get at least a pair of Philips head screwdrivers to unscrew the casing of your monitor'
+        title: 'Phillips screwdriver',
+        content: 'Like the flat heads, get at least a pair of Philips head screwdrivers to unscrew the casing of your monitor'
     },
     {
-      title: 'Pliers (optional)',
-      content: 'Sometimes pliers are also needed to unscrew the nuts that keep the connectors atached to the casing or to disconnect the cables'
+        title: 'Pliers (optional)',
+        content: 'Sometimes pliers are also needed to unscrew the nuts that keep the connectors atached to the casing or to disconnect the cables'
     },
     {
-      title: 'Cutter',
-      content: 'Grab something sharp like knife or a cutter to slice the flex cables of the lcd panel'
+        title: 'Cutter',
+        content: 'Grab something sharp like knife or a cutter to slice the flex cables of the lcd panel'
     },
     {
         title: 'Soldering iron',
         content: 'You need a soldering iron to solder the leds'
-      },
-      
-  ];
-  const listItemsTwo = [
+    },
+
+];
+const listItemsTwo = [
     {
-      title: 'LED strip',
-      content: 'Buy a led strip, there are different types, ideally try to get one with a high density of leds (ex. 144 LEDS/m)'
+        title: 'LED strip',
+        content: 'Buy a led strip, there are different types, ideally try to get one with a high density of leds (ex. 144 LEDS/m)'
     },
     {
-      title: 'Solder',
-      content: 'Get some thin solder, it should ideally be lead free and it should have a rosin core '
+        title: 'Solder',
+        content: 'Get some thin solder, it should ideally be lead free and it should have a rosin core '
     },
     {
-      title: 'L shaped aluminum channels (optional, only if you want to use the backlight as a panel)',
-      content: 'Get some L channels if you want to make a simple frame for the panel, if you want to create a backlit section for your props skip this step  '
+        title: 'L shaped aluminum channels (optional, only if you want to use the backlight as a panel)',
+        content: 'Get some L channels if you want to make a simple frame for the panel, if you want to create a backlit section for your props skip this step  '
     },
     {
-      title: 'Heat shrink tubing/electrical tape (crucial)',
-      content: 'Buy some to protect your connections, especially against shorting if you are making a panel'
+        title: 'Heat shrink tubing/electrical tape (crucial)',
+        content: 'Buy some to protect your connections, especially against shorting if you are making a panel'
     },
     {
         title: 'PPE, gloves and mask',
         content: 'Protect your health with the proper equipment '
-      },
-      
-  ];
+    },
+
+];
 const codeString = `#!/usr/bin/env python3
 
 from rpi_ws281x import PixelStrip, Color
@@ -162,188 +172,165 @@ if __name__ == '__main__':
         blackout(strip1)
         blackout(strip2)`;
 
-  
-        const authorInfo = {
-            name: 'File',
-            bio: 'Experienced costume maker.',
-            avatar: '../src/assets/LD.png'  // Make sure to have a valid path or URL here.
-        };
-        
+
+const authorInfo = {
+    name: 'File',
+    bio: 'Experienced costume maker.',
+    avatar: '../src/assets/LD.png'  // Make sure to have a valid path or URL here.
+};
+
+const pollTitle = "What's your favorite project type?";
+const pollOptions = ["DIY Projects", "Electronics", "Crafts", "Woodworking"];
+const tableData = [
+    { Name: "Alice Johnson", Occupation: "Engineer", Location: "New York" },
+    { Name: "Bob Smith", Occupation: "Designer", Location: "San Francisco" },
+    { Name: "Carol Williams", Occupation: "Artist", Location: "Seattle" }
+];
+const productInfo = {
+    image: "../src/assets/wireFrameDragon.png", // Replace with your actual image path
+    category: "Electronics",
+    title: "Advanced Camera",
+    rating: 4,
+    description: "This advanced camera is perfect for capturing high-quality photos.",
+    price: "$999.99"
+};
 const Page = () => {
     return (
         <>
-           
 
-<main class="pt-4 pb-8 antialiased">
-  <div class="flex justify-between px-4 mx-auto ">
-      <article class="mx-auto w-full max-w-7xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-          <ProgressBar />
-          <FloatingMenu />
-          <Header date="2024-05-04" title="Salvaging the backlight of an old monitor for your projects" directories={directories}/>
-          <Lead content="Do you have an old/broken monitor that is lying around your office gathering dust? If the answer is yes, 
+
+            <main class="pt-4 pb-8 antialiased">
+                <div class="flex justify-between px-4 mx-auto ">
+                    <article class="mx-auto w-full max-w-7xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                        <ProgressBar />
+                        <FloatingMenu />
+                        <Header date="2024-05-04" title="Salvaging the backlight of an old monitor for your projects" directories={directories} />
+                        <Lead content="Do you have an old/broken monitor that is lying around your office gathering dust? If the answer is yes, 
           this guide is just for you! follow this tutorial to learn how to reuse the backlight for your projects."/>
-          <HeaderTwo content="Before we start.."/>
-          <WarningSection text="Caution (High voltage/Temperatures): Following this guide incorrectly may lead to injury or damage, follow it at your own risk. We won't take responsibility for any damage resulting from following the guide." />
-          <HeaderTwo content="Tools"/>
-          <OrderedListComponent items={listItemsOne} />
-          <HeaderTwo content="Materials"/>
-          <OrderedListComponent items={listItemsTwo} />
-          <Paragraph content="Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+                        <HeaderTwo content="Before we start.." />
+                        <WarningSection text="Caution (High voltage/Temperatures): Following this guide incorrectly may lead to injury or damage, follow it at your own risk. We won't take responsibility for any damage resulting from following the guide." />
+                        <InfoSection text="There are two types of backlight: led and ccfl. Older screen tend to have the second type which can be dangerous if not dealt with carefully, always do your research before starting" />
+                        <HeaderTwo content="Tools" />
+                        <OrderedListComponent items={listItemsOne} />
+                        <HeaderTwo content="Materials" />
+                        <OrderedListComponent items={listItemsTwo} />
+
+                        <HeaderTwo content="The more you know.." />
+                        <TipsSection text="Here's a tip, if you don't have a screen you can simply ask your friends or, if that doesn't work, you can also ask local businesses and schools for decomissioned hardware, most of the times, they are going to be happy to give it to you. That is exactly how we acquired the monitor in the guide which was actually in a lot of over 20 broken screens!" />
+                        <Paragraph content="Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
               you can think things through before committing to an actual design project."/>
-          <ParagraphAnchorTwo contentB="But then I found a " anchor="https://flowbite.com" anchorText="component library based on Tailwind CSS called
+                        <ParagraphAnchorTwo contentB="But then I found a " anchor="https://flowbite.com" anchorText="component library based on Tailwind CSS called
                   Flowbite" contentA=". It comes with the most commonly used UI components, such as buttons, navigation
                   bars, cards, form elements, and more which are conveniently built with the utility classes from
                   Tailwind CSS"/>
-          
-              
-          <ImageViewer src="../../src/assets/img1.JPG"/>
-          
-          <h2 className="font-extrabold">Getting started with Flowbite</h2>
-          <p>First of all you need to understand how Flowbite works. This library is not another framework.
-              Rather, it is a set of components based on Tailwind CSS that you can just copy-paste from the
-              documentation.</p>
-          <p>It also includes a JavaScript file that enables interactive components, such as modals, dropdowns,
-              and datepickers which you can optionally include into your project via CDN or NPM.</p>
-          <p>You can check out the <a href="https://flowbite.com/docs/getting-started/quickstart/">quickstart
-                  guide</a> to explore the elements by including the CDN files into your project. But if you want
-              to build a project with Flowbite I recommend you to follow the build tools steps so that you can
-              purge and minify the generated CSS.</p>
-          <p>You'll also receive a lot of useful application UI, marketing UI, and e-commerce pages that can help
-              you get started with your projects even faster. You can check out this <a
-                  href="https://flowbite.com/docs/components/tables/">comparison table</a> to better understand
-              the differences between the open-source and pro version of Flowbite.</p>
-          
-          <h2>When does design come in handy?</h2>
-          <p>While it might seem like extra work at a first glance, here are some key moments in which prototyping
-              will come in handy:</p>
-          
-          
-          
-          <h3>Laying the groundwork for best design</h3>
-          <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
-              you can think things through before committing to an actual design project.</p>
-          <p>Let's start by including the CSS file inside the <code>head</code> tag of your HTML.</p>
-          <h3>Understanding typography</h3>
-          <h4>Type properties</h4>
-          <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
-              letters. A typeface represents shared patterns across a collection of letters.</p>
-          <h4>Baseline</h4>
-          <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
-              letters. A typeface represents shared patterns across a collection of letters.</p>
-          <h4>Measurement from the baseline</h4>
-          <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
-              letters. A typeface represents shared patterns across a collection of letters.</p>
-          <h3>Type classification</h3>
-          <h4>Serif</h4>
-          <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
-              Typefaces with serifs are called serif typefaces. Serif fonts are classified as one of the
-              following:</p>
-          <h4>Old-Style serifs</h4>
-          <ul>
-              <li>Low contrast between thick and thin strokes</li>
-              <li>Diagonal stress in the strokes</li>
-              <li>Slanted serifs on lower-case ascenders</li>
-          </ul><img src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-2.png" alt=""/>
-          <ol>
-              <li>Low contrast between thick and thin strokes</li>
-              <li>Diagonal stress in the strokes</li>
-              <li>Slanted serifs on lower-case ascenders</li>
-          </ol>
-          <h3>Laying the best for successful prototyping</h3>
-          <p>A serif is a small shape or projection that appears at the beginning:</p>
-          <blockquote>
-              <p>Flowbite is just awesome. It contains tons of predesigned components and pages starting from
-                  login screen to complex dashboard. Perfect choice for your next SaaS application.</p>
-          </blockquote>
-          <h4>Code example</h4>
-          <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
-              Typefaces with serifs are called serif typefaces. Serif fonts are classified as one of the
-              following:</p>
-          
 
-        <CodeArea header="test" code={codeString}></CodeArea>
-          <h4>Table example</h4>
-          <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
-          </p>
-          <table className="rounded-lg shadow-xl shadow-purple-700/50">
-              <thead className="bg-gray-900">
-                  <tr>
-                      <th>Country</th>
-                      <th>Date &amp; Time</th>
-                      <th>Amount</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>United States</td>
-                      <td>April 21, 2021</td>
-                      <td><strong>$2,300</strong></td>
-                  </tr>
-                  <tr>
-                      <td>Canada</td>
-                      <td>May 31, 2021</td>
-                      <td><strong>$300</strong></td>
-                  </tr>
-                  <tr>
-                      <td>United Kingdom</td>
-                      <td>June 3, 2021</td>
-                      <td><strong>$2,500</strong></td>
-                  </tr>
-                  <tr>
-                      <td>Australia</td>
-                      <td>June 23, 2021</td>
-                      <td><strong>$3,543</strong></td>
-                  </tr>
-                  <tr>
-                      <td>Germany</td>
-                      <td>July 6, 2021</td>
-                      <td><strong>$99</strong></td>
-                  </tr>
-                  <tr>
-                      <td>France</td>
-                      <td>August 23, 2021</td>
-                      <td><strong>$2,540</strong></td>
-                  </tr>
-              </tbody>
-          </table>
-          <h3>Best practices for setting up your prototype</h3>
-          
-          {/*<ImageText />*/}
-          <ImageGallery />
-          <p><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
-              the real deal. If you’re simply preparing a quick visual aid for a presentation, a low-fidelity
-              prototype — like a wireframe with placeholder images and some basic text — would be more than
-              enough. But if you’re going for more intricate usability testing, a high-fidelity prototype — with
-              on-brand colors, fonts and imagery — could help get more pointed results.</p>
-          <p><strong>Consider your user</strong>. To create an intuitive user flow, try to think as your user
-              would when interacting with your product. While you can fine-tune this during beta testing,
-              considering your user’s needs and habits early on will save you time by setting you on the right
-              path.</p>
-          <p><strong>Start from the inside out</strong>. A nice way to both organize your tasks and create more
-              user-friendly prototypes is by building your prototypes ‘inside out’. Start by focusing on what will
-              be important to your user, like a Buy now button or an image gallery, and list each element by order
-              of priority. This way, you’ll be able to create a prototype that puts your users’ needs at the heart
-              of your design.</p>
-          <p>And there you have it! Everything you need to design and share prototypes — right in Flowbite Figma.
-          </p>
-          <FAQ />
-            {/*<Video src="../../src/assets/your_video.mp4"/>*/}
-            <Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"/>
-            <hr></hr>
-            <SocialShare url="https://yourblogposturl.com" title="Awesome Blog Post" />
-            <AuthorBox author={authorInfo} />
-            <FeedbackSection />
-            <DownloadSection />
-      </article>
-  </div>
-</main>
+
+                        <ImageViewer src="../../src/assets/img1.JPG" />
+                        <HeaderTwo content="Buy us a coffee.." />
+                        <PatronAcknowledgments text="Donate and keep us posting these free guides" buttonText="Patreon" />
+                        <h2 className="font-extrabold">Getting started with Flowbite</h2>
+                        <p>First of all you need to understand how Flowbite works. This library is not another framework.
+                            Rather, it is a set of components based on Tailwind CSS that you can just copy-paste from the
+                            documentation.</p>
+                        <p>It also includes a JavaScript file that enables interactive components, such as modals, dropdowns,
+                            and datepickers which you can optionally include into your project via CDN or NPM.</p>
+                        <p>You can check out the <a href="https://flowbite.com/docs/getting-started/quickstart/">quickstart
+                            guide</a> to explore the elements by including the CDN files into your project. But if you want
+                            to build a project with Flowbite I recommend you to follow the build tools steps so that you can
+                            purge and minify the generated CSS.</p>
+                        <p>You'll also receive a lot of useful application UI, marketing UI, and e-commerce pages that can help
+                            you get started with your projects even faster. You can check out this <a
+                                href="https://flowbite.com/docs/components/tables/">comparison table</a> to better understand
+                            the differences between the open-source and pro version of Flowbite.</p>
+                        <HeaderTwo content="Help us with this quick poll" />
+                        <Poll title={pollTitle} options={pollOptions} />
+                        <p>While it might seem like extra work at a first glance, here are some key moments in which prototyping
+                            will come in handy:</p>
+
+
+                        <HeaderThree content="Laying the groundwork for best design" />
+
+                        <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+                            you can think things through before committing to an actual design project.</p>
+                        <p>Let's start by including the CSS file inside the <code>head</code> tag of your HTML.</p>
+                        <h3>Understanding typography</h3>
+                        <HeaderFour content="Type properties" />
+
+                        <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+                            letters. A typeface represents shared patterns across a collection of letters.</p>
+                        <h4>Baseline</h4>
+                        <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+                            letters. A typeface represents shared patterns across a collection of letters.</p>
+                        <h4>Measurement from the baseline</h4>
+                        <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+                            letters. A typeface represents shared patterns across a collection of letters.</p>
+                        <h3>Type classification</h3>
+                        <h4>Serif</h4>
+                        <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
+                            Typefaces with serifs are called serif typefaces. Serif fonts are classified as one of the
+                            following:</p>
+                        <h4>Old-Style serifs</h4>
+                        <UnoredredList items={listItemsOne} />
+                        <ol>
+                            <li>Low contrast between thick and thin strokes</li>
+                            <li>Diagonal stress in the strokes</li>
+                            <li>Slanted serifs on lower-case ascenders</li>
+                        </ol>
+                        <h3>Laying the best for successful prototyping</h3>
+                        <p>A serif is a small shape or projection that appears at the beginning:</p>
+                        <Blockquote quoteItem="The most important thing is to enjoy your life - to be happy - it's all that matters. - Steve Jobs" />
+                        <h4>Code example</h4>
+                        <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
+                            Typefaces with serifs are called serif typefaces. Serif fonts are classified as one of the
+                            following:</p>
+
+
+                        <CodeArea header="test" code={codeString}></CodeArea>
+                        <h4>Table example</h4>
+                        <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
+                        </p>
+                        <ResponsiveTable data={tableData} />
+
+                        <h3>Best practices for setting up your prototype</h3>
+
+                        {/*<ImageText />*/}
+                        <ImageGallery />
+                        <HeaderTwo content="Our featured product"/>
+                        <ProductCard product={productInfo} />
+                        <p><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
+                            the real deal. If you’re simply preparing a quick visual aid for a presentation, a low-fidelity
+                            prototype — like a wireframe with placeholder images and some basic text — would be more than
+                            enough. But if you’re going for more intricate usability testing, a high-fidelity prototype — with
+                            on-brand colors, fonts and imagery — could help get more pointed results.</p>
+                        <p><strong>Consider your user</strong>. To create an intuitive user flow, try to think as your user
+                            would when interacting with your product. While you can fine-tune this during beta testing,
+                            considering your user’s needs and habits early on will save you time by setting you on the right
+                            path.</p>
+                        <p><strong>Start from the inside out</strong>. A nice way to both organize your tasks and create more
+                            user-friendly prototypes is by building your prototypes ‘inside out’. Start by focusing on what will
+                            be important to your user, like a Buy now button or an image gallery, and list each element by order
+                            of priority. This way, you’ll be able to create a prototype that puts your users’ needs at the heart
+                            of your design.</p>
+                        <p>And there you have it! Everything you need to design and share prototypes — right in Flowbite Figma.
+                        </p>
+                        <FAQ />
+                        {/*<Video src="../../src/assets/your_video.mp4"/>*/}
+                        <Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+                        <hr></hr>
+                        <SocialShare url="https://yourblogposturl.com" title="Awesome Blog Post" />
+                        <AuthorBox author={authorInfo} />
+                        <FeedbackSection />
+                        <DownloadSection />
+                    </article>
+                </div>
+            </main>
 
 
 
 
 
 
-           
+
         </>
     );
 }
