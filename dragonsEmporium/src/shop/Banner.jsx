@@ -5,7 +5,7 @@ const Banner = ({text}) => {
     return (
         <>
             <div className="flex items-center justify-center">
-            <div  tabindex="-1" class="fixed z-50 flex flex-col md:flex-row justify-between w-[calc(100%-2rem)] p-4 -translate-x-1/2  rounded-lg shadow-lg shadow-purple-700/50 border max-w-7xl left-1/2 top-6 bg-gray-800 border-gray-600">
+            <div  tabindex="-1" class="fixed z-50 flex flex-col md:flex-row justify-between w-[calc(100%-2rem)] p-4 -translate-x-1/2  rounded-lg shadow-lg shadow-purple-700/50 border max-w-7xl left-1/2 bottom-6 bg-gray-800 border-gray-600">
                 <div class="flex flex-col items-start mb-3 me-4 md:items-center md:flex-row md:mb-0">
                     <a href="https://flowbite.com/" class="flex items-center mb-2 border-gray-200 md:pe-4 md:me-4 md:border-e md:mb-0 dark:border-gray-600">
                         <img src="../src/assets/LDE.png" class="h-6 me-2" alt="Dragon Logo"/>
