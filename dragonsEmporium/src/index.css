@@ -1,12 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+
 button {
-    @apply hover:bg-white
-    focus:ring-4 focus:outline-none 
-    focus:ring-electric-violet 
+    @apply 
+    focus:ring-1 focus:outline-none 
+    focus:ring-gray-700 
     md:font-semibold rounded-lg md:text-sm 
     px-1 md:px-5 py-2.5 text-center 
     inline-flex items-center;

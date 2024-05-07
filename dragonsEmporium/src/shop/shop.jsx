@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import GridArticle from "./GridArticle.jsx";
 import ProductGrid from "./ProductGrid.jsx";
-import ProductHeader from "./Header.jsx";
+import Banner from "./Banner.jsx";
+import ProductListHeader from "./Heading.jsx";
 import whiteDragonImage from '../assets/whiteDragon.png'; 
 
 const products = [
@@ -143,7 +144,8 @@ const products = [
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Navbar />
-    <ProductHeader />
+    <ProductListHeader />
+    <Banner text="Summer Sale | 50% Off until 15/06/24 " />
     <GridArticle />
     <ProductGrid products={products} />
     <Footer />

@@ -69,7 +69,7 @@ const ProductCard = ({ product }) => {
                 </AnimatePresence>
                 <motion.button
                     onClick={prevImage}
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white"
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:bg-black hover:opacity-70"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
