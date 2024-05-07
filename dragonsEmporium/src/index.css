@@ -13,4 +13,36 @@ button {
 h1,p,a,button{
     @apply text-white;
 }
-
+.my-masonry-grid {
+    display: flex;
+    margin-left: -30px;
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 30px;
+    background-clip: padding-box;
+  }
+  
+  /* Ensure images fill their divs and maintain their aspect ratio */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Change to contain to see entire image without cropping */
+  }
+  .image-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .image-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .image-card:hover .image-info {
+    transform: translateY(0);
+  }
