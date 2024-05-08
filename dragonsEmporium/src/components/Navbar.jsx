@@ -159,7 +159,7 @@ export default function Navbar() {
           >
             SHOP
           </button>
-          <button className="hidden lg:flex" onClick={() => redirect("#")}>
+          <button className="hidden lg:flex" onClick={() => redirect("../../about.html")}>
             ABOUT US
           </button>
           <button className="hidden lg:flex" onClick={() => redirect("#")}>
