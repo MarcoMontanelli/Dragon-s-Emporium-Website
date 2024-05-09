@@ -13,7 +13,7 @@ const MiniArticle = ({ category, title, date, description, imageUrl }) => {
 
   return (
     <motion.div 
-      className="bg-gray-800 text-white p-2 rounded-lg my-2 transition duration-300"
+      className="bg-gray-900 border border-gray-700 text-white p-2 rounded-lg my-2 transition duration-300"
       variants={articleVariants}
       initial="initial"
       animate="animate"
@@ -62,13 +62,13 @@ const Sidebar = () => {
 
   return (
     <div className="space-y-4">
-      <div className="bg-gray-700 p-4 rounded-xl">
+      <div className="bg-gray-950 p-4 rounded-xl">
         <h3 className="text-white text-lg font-bold">Related Articles</h3>
         {articles.map((article, index) => (
           <MiniArticle key={index} {...article} />
         ))}
       </div>
-      <div className="bg-gray-700 p-4 rounded-xl">
+      <div className="bg-gray-950 p-4 rounded-xl">
         <h3 className="text-white text-lg font-bold">Advertisement</h3>
         <div className="h-40 bg-white rounded-lg"></div>
       </div>

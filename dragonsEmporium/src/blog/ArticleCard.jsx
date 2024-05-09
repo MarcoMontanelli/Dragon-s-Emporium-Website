@@ -11,7 +11,7 @@ const Article = ({ category, title, date, description, imageUrl }) => {
   };
 
   return (
-    <motion.div className="bg-gray-800 text-white p-6 rounded-xl mx-auto max-w-7xl w-full my-8 shadow-lg transition-shadow duration-300 hover:shadow-2xl"
+    <motion.div className="bg-gray-900 border border-gray-700 text-white p-6 rounded-xl mx-auto max-w-7xl w-full my-8 shadow-lg transition-shadow duration-300 hover:shadow-2xl"
                 variants={articleVariants}
                 initial="initial"
                 animate="animate"

@@ -9,6 +9,9 @@ import FeaturedArticle from "./FeaturedArticle.jsx";
 import Article from "./ArticleCard.jsx";
 import Sidebar from "./Sidebar.jsx";
 import BlogTitle from "./BlogHeader.jsx";
+import CategorySection from "./Categories.jsx";
+import CategoryHeader from "./CategoryHeader.jsx";
+import Nav from "../components/Nav.jsx";
 const articleData = {
     category: "Technology",
     date: "April 23, 2024",
@@ -74,6 +77,7 @@ const articles = [
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Nav />
     <Navbar />
     <Header />
     <FeaturedArticle category={articleData.category}
@@ -83,6 +87,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 content={articleData.content}
                 images={articleData.images} /> 
    {/* <BlogArticleGrid />*/}
+   <CategoryHeader />
+    <CategorySection />
     <BlogTitle />
     <div className="min-h-screen bg-black p-10">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
