@@ -50,7 +50,7 @@ const FeaturedArticle = ({ category, date, title, description, content, images }
 
     return (
         <>
-            <section className="pt-2  p-4 md:px-16  bg-black border hover:bg-black hover:bg-opacity-35  border-gray-800 rounded-lg md:m-4 m-2 shadow-xl shadow-indigo-700/50">
+            <section className="pt-2  p-4 md:px-16  bg-black  hover:bg-black hover:bg-opacity-35   md:m-4 m-2 ">
                 <h1 className="mb-4 mt-2 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Today's featured article</h1>
                 <p className="mb-4 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Check out what we have in store for you today.</p>
                 <div className="md:gap-16 items-center mx-auto max-w-screen-3xl lg:grid lg:grid-cols-2 lg:py-1">
