@@ -79,8 +79,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Nav />
     <Navbar />
-    <Header />
-    <FeaturedArticle category={articleData.category}
+    <div className="hidden md:block"> <Header  /></div>
+    
+    {/*<FeaturedArticle category={articleData.category}
                 date={articleData.date}
                 title={articleData.title}
                 description={articleData.description}
@@ -91,8 +92,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <CategorySection />
     <BlogTitle />
     <div className="min-h-screen bg-black p-10">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+        <div className="lg:col-span-3 md:px-12">
           {articles.map(article => (
             <Article key={article.id} {...article} />
           ))}

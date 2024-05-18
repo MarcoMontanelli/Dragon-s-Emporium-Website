@@ -25,7 +25,7 @@ const SocialMediaBar = () => {
   const icons = [faFacebook, faTwitter, faGoogle, faInstagram];
 
   return (
-    <div className=" py-4 px-10">
+    <div className="bg-gradient-to-r from-gray-950 via-slate-900 to-gray-950 py-4 px-10">
       <div className="container mx-auto text-center">
         <motion.h2
           className="text-2xl text-white font-bold mb-4"
