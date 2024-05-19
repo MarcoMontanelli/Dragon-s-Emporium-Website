@@ -41,8 +41,8 @@ const ReferenceImageStep = ({ images, setImages }) => {
       </div>
       <div className="flex space-x-4 overflow-x-auto pb-2 w-full max-w-full">
         {images.map((image, index) => (
-          <motion.div 
-            key={index} 
+          <motion.div
+            key={index}
             className="relative flex-shrink-0 w-64 h-36 rounded-lg overflow-hidden border border-gray-300"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -100,15 +100,18 @@ const StepperForm = ({ commission }) => {
       <div className="relative z-10 flex flex-col items-center justify-center max-w-7xl w-full mx-auto">
         <div className="w-full mb-8 lg:mb-12">
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-extrabold text-center text-white mb-1">Provide the details needed to commission your item</h1>
+            <h1 className="text-3xl font-extrabold text-center text-white mb-1 p-2">Provide the details needed to commission your item</h1>
           </div>
         </div>
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full bg-slate-900 border border-gray-600 rounded-lg p-8">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full bg-black bg-opacity-70 border border-gray-600 rounded-lg p-8">
           <div className="lg:w-1/4 mb-8 lg:mb-0">
             <div className="flex flex-col items-center lg:items-start">
               <div className="flex flex-col gap-4">
-                <img src="../src/assets/LD.png" alt="Logo" className="h-12 mb-4" />
+                <div className="flex items-center justify-center"><img src="../src/assets/LD.png" alt="Logo" className="h-12 mb-4" />
+                  
+                </div>
                 <h1 className="text-3xl font-bold text-center text-white mb-6">Commission request form</h1>
+
                 {steps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -129,7 +132,7 @@ const StepperForm = ({ commission }) => {
                 >
                   <FontAwesomeIcon icon={faQuestionCircle} className="mr-2" /> Help
                 </motion.button></div>
-                
+
               </div>
             </div>
           </div>
@@ -180,61 +183,61 @@ const StepperForm = ({ commission }) => {
           </div>
         </div>
         <AnimatePresence>
-  {showModal && (
-    <motion.div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <motion.div
-        className="bg-slate-950 rounded-lg shadow-lg p-8 max-w-2xl w-full border border-gray-700 text-white mx-4"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.8 }}
-      >
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold">How to commission an item</h2>
-          <button
-            onClick={() => setShowModal(false)}
-            className="text-white hover:text-gray-400"
-          >
-            <FontAwesomeIcon icon={faTimes} size="lg" />
-          </button>
-        </div>
-        <hr className="my-4" />
-        <div className="mb-6">
-          <p className="text-lg">To commission an item, please follow these steps:</p>
-          <ul className="list-none mt-4 space-y-4">
-            <li className="flex items-start">
-              <FontAwesomeIcon icon={faUser} className="text-blue-500 text-xl mr-4" />
-              <div>
-                <p className="font-semibold text-lg">Step 1: Provide your personal information</p>
-                <p>Fill out your name, email, and contact details so we can get in touch with you.</p>
-              </div>
-            </li>
-            <li className="flex items-start">
-              <FontAwesomeIcon icon={faImage} className="text-blue-500 text-xl mr-4" />
-              <div>
-                <p className="font-semibold text-lg">Step 2: Upload reference images</p>
-                <p>Upload any reference images or files that are necessary for your commission.</p>
-              </div>
-            </li>
-            <li className="flex items-start">
-              <FontAwesomeIcon icon={faEnvelope} className="text-blue-500 text-xl mr-4" />
-              <div>
-                <p className="font-semibold text-lg">Step 3: Write a detailed message</p>
-                <p>Describe your request in detail so we understand exactly what you need.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <hr className="my-4" />
-        
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+          {showModal && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className=" bg-slate-950 bg-opacity-75 rounded-lg shadow-lg p-8 max-w-2xl w-full border border-gray-700 text-white mx-4"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+              >
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-3xl font-bold">How to commission an item</h2>
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="text-white hover:text-gray-400"
+                  >
+                    <FontAwesomeIcon icon={faTimes} size="lg" />
+                  </button>
+                </div>
+                <hr className="my-4" />
+                <div className="mb-6">
+                  <p className="text-lg">To commission an item, please follow these steps:</p>
+                  <ul className="list-none mt-4 space-y-4">
+                    <li className="flex items-start">
+                      <FontAwesomeIcon icon={faUser} className="text-blue-500 text-xl mr-4" />
+                      <div>
+                        <p className="font-semibold text-lg">Step 1: Provide your personal information</p>
+                        <p>Fill out your name, email, and contact details so we can get in touch with you.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <FontAwesomeIcon icon={faImage} className="text-blue-500 text-xl mr-4" />
+                      <div>
+                        <p className="font-semibold text-lg">Step 2: Upload reference images</p>
+                        <p>Upload any reference images or files that are necessary for your commission.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <FontAwesomeIcon icon={faEnvelope} className="text-blue-500 text-xl mr-4" />
+                      <div>
+                        <p className="font-semibold text-lg">Step 3: Write a detailed message</p>
+                        <p>Describe your request in detail so we understand exactly what you need.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <hr className="my-4" />
+
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </div>

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "../index.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import MasonryGallery from "./Gallery.jsx";
+import PortfolioGallery from "./Gallery.jsx";
 
 
 
@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Navbar />
     
-    <MasonryGallery />
+    <PortfolioGallery />
 
     <Footer />
   </React.StrictMode>

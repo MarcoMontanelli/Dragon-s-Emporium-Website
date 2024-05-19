@@ -1,4 +1,11 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faUser, faGlobe, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import Flag from 'react-world-flags';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
 
 export function DragonLogo() {
   return (
@@ -8,272 +15,278 @@ export function DragonLogo() {
         className="h-11"
         alt="Dragon's Emporium Logo"
       />
-      <span className="text-white self-center text-2xl font-bold whitespace-nowrap ">
+      <span className="text-white self-center text-2xl font-bold whitespace-nowrap">
         Dragon's Emporium
       </span>
     </a>
   );
 }
-function DropValue({ value, link }) {
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isBlogOpen, setIsBlogOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleProfileToggle = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
+
+  const handleLangToggle = () => {
+    setIsLangOpen(!isLangOpen);
+  };
+
+  const handleBlogToggle = () => {
+    setIsBlogOpen(!isBlogOpen);
+  };
+
+  const handleShopToggle = () => {
+    setIsShopOpen(!isShopOpen);
+  };
+
   return (
-    <li>
-      <a
-        href={link}
-        className="block px-4 py-2 hover:bg-white text-white"
-      >
-        {value}
-      </a>
-    </li>
-  );
-}
-function Dropdown({ value, handle }) {
-  return (
-    <button type="button" className="hidden lg:flex" onClick={handle}>
-      {value}
-      <svg
-        className="w-3 h-3 ms-3"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 10 6"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m1 2 4 4 4-4"
-        />
-      </svg>
-    </button>
-  );
-}
-function SearchBar() {
-  return (
-    <>
-      <div className="flex lg:order-2">
-        <div class="relative hidden lg:block">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg
-              class="w-4 h-4 text-blackk"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
-          </div>
-          <input
-            type="text"
-            id="search-navbar"
-            class="block w-full p-2 ps-10 text-sm text-blackk border-white rounded-lg focus:ring-white focus:border-white "
-            placeholder="Search..."
-          />
-        </div>
-      </div>
-    </>
-  );
-}
-function MainMenu({ handle }) {
-  return (
-    <button
-      data-collapse-toggle="navbar-search"
-      type="button"
-      className="lg:hidden"
-      aria-controls="navbar-search"
-      aria-expanded="false"
-      onClick={handle}
+    <motion.nav
+      className="bg-slate-950 opacity-90 text-white p-4 w-full z-10"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <span class="sr-only">Open main menu</span>
-      <svg
-        class="w-8 h-5"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 17 14"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M1 1h15M1 7h15M1 13h15"
-        />
-      </svg>
-    </button>
-  );
-}
-export default function Navbar() {
-  const [isOpen, setOpen] = useState(false);
-  const [mIsOpen, setMOpen] = useState(Array(2).fill(false));
-  const [sameI, setSameI] = useState(null);
-  function handleDropDown() {
-    console.log("piero angela");
-    setOpen(!isOpen);
-  }
-  function handleDropdownMobile(i) {
-    const currentDropdown = mIsOpen.slice();
-    if (i == 0) {
-      currentDropdown[i] = !currentDropdown[i];
-      currentDropdown[1] = false;
-      setMOpen(currentDropdown);
-      return;
-    }
-    currentDropdown[i] = !currentDropdown[i];
-    setMOpen(currentDropdown);
-  }
-  function redirect(url) {
-    window.location = url;
-  }
-  return (
-    <>
-      <nav className="bg-slate-900">
-        <div className="flex flex-wrap lg:flex items-center justify-between mx-auto p-5 lg:p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center">
           <DragonLogo />
-          {/*BLOG DESKTOP*/}
-          <div className="flex flex-col relative z-10">
-            <Dropdown value="BLOG" handle={handleDropDown} />
-            <div
-              id="blog"
-              className={` ${
-                isOpen ? "block" : "hidden"
-              } bg-space-cadet absolute top-12 w-full divide-y rounded-lg`}
-            >
-              <ul className="py-2 text-sm">
-                <DropValue value="news" link="#" />
-                <DropValue value="posts" link="#" />
-              </ul>
-            </div>
-          </div>
-          {/*SHOP DESKTOP*/}
-          <button
-            className="hidden lg:flex"
-            onClick={() => redirect("../../shop.html")}
-          >
-            SHOP
-          </button>
-          <button className="hidden lg:flex" onClick={() => redirect("../../about.html")}>
-            ABOUT US
-          </button>
-          <button className="hidden lg:flex" onClick={() => redirect("#")}>
-            PORTFOLIO
-          </button>
-          <button className="hidden lg:flex" onClick={() => redirect("../../blog.html")}>
-            COMMISSIONS
-          </button>
-          <SearchBar />
-          <MainMenu handle={() => handleDropdownMobile(0)} />
         </div>
-      </nav>
-      <div className={` ${mIsOpen[0] ? "block" : "hidden"} "lg:hidden`}>
-        <div class="relative mt-3 lg:hidden">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
-          </div>
-          <input
-            type="text"
-            id="search-navbar"
-            class="block w-full p-3 ps-10 text-sm text-blackk border rounded-lg"
-            placeholder="Search..."
-          />
-        </div>
-        {/*SEARCHBAR MOBILE*/}
-        <ul class="flex flex-col p-4 mt-4 font-medium border rounded-lg">
-          <li>
-            <div className="flex flex-col relative z-50">
-              <button
-                class="flex object-fill py-2 px-3 rounded hover:bg-white text-white"
-                type="button"
-                onClick={() => handleDropdownMobile(1)}
-              >
-                Blog
-                <svg
-                  class="w-2.5 h-2.5 ms-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
+        <div className="hidden md:flex space-x-4 items-center">
+          <div className="relative">
+            <button className="font-extrabold text-lg flex items-center" onClick={handleBlogToggle}>
+              Blog <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
+            </button>
+            <AnimatePresence>
+              {isBlogOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bg-black text-white p-4 mt-2 rounded"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-              </button>
-              <div
-                id="blog"
-                className={` ${
-                  mIsOpen[1] ? "block" : "hidden"
-                } bg-space-cadet absolute top-12 w-full divide-y rounded-lg`}
-              >
-                <ul className="py-2 text-sm">
-                  <DropValue value="news" link="#" />
-                  <DropValue value="posts" link="#" />
-                </ul>
-              </div>
-            </div>
-          </li>
-          {/*BLOG MOBILE*/}
-          <li>
-            <a
-              href="../../shop.html"
-              class="block py-2 px-3 rounded hover:bg-white text-white"
-            >
-              Shop
-            </a>
-          </li>
-          {/*SHOP MOBILE*/}
-          <li>
-            <a
-              href="#"
-              class="block py-2 px-3 rounded hover:bg-white text-white"
-            >
-              About us
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block py-2 px-3 rounded hover:bg-white text-white"
-            >
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block py-2 px-3 rounded hover:bg-white text-white"
-            >
-              Commissions
-            </a>
-          </li>
-        </ul>
+                  <a href="/blog.html" className="block py-1">Homepage</a>
+                  <a href="/post.html" className="block py-1">Latest post</a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <div className="relative">
+            <button className="font-extrabold text-lg flex items-center" onClick={handleShopToggle}>
+              Shop <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
+            </button>
+            <AnimatePresence>
+              {isShopOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bg-black text-white p-4 mt-2 rounded"
+                >
+                  <a href="/shop.html" className="block py-1">Homepage</a>
+                  <a href="#product2" className="block py-1">Latest product</a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <a href="/about.html" className="font-extrabold text-lg">About us</a>
+          <a href="/portfolio.html" className="font-extrabold text-lg">Portfolio</a>
+          <a href="/commissions.html" className="font-extrabold text-lg">Commissions</a>
+        </div>
+        <div className="hidden md:flex items-center space-x-4">
+          <div className="relative">
+            <button onClick={handleProfileToggle} className="flex items-center">
+              <img src="../src/assets/LD.png" alt="Profile" className="h-8 w-8 rounded-full mr-2" />
+              <FontAwesomeIcon icon={faCaretDown} />
+            </button>
+            <AnimatePresence>
+              {isProfileOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bg-black text-white p-4 mt-2 rounded"
+                >
+                  <div className="flex items-center py-1">
+                    <img src="path/to/profile-image.jpg" alt="Profile" className="h-8 w-8 rounded-full mr-2" />
+                    <div>
+                      <p>Bonnie Green</p>
+                      <p className="text-gray-400">name@flowbite.com</p>
+                    </div>
+                  </div>
+                  <a href="#dashboard" className="block py-1">Dashboard</a>
+                  <a href="#settings" className="block py-1">Settings</a>
+                  <a href="#earnings" className="block py-1">Earnings</a>
+                  <a href="#signout" className="block py-1">Sign out</a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <div className="relative">
+            <button onClick={handleLangToggle} className="flex items-center">
+              <FontAwesomeIcon icon={faGlobe} size="lg" />
+              <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
+            </button>
+            <AnimatePresence>
+              {isLangOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bg-black text-white p-4 mt-2 rounded"
+                >
+                  <div className="flex items-center py-1">
+                    <Flag code="US" className="h-5 w-5 rounded-full mr-2" />
+                    <p>English (US)</p>
+                  </div>
+                  <div className="flex items-center py-1">
+                    <Flag code="DE" className="h-5 w-5 rounded-full mr-2" />
+                    <p>Deutsch</p>
+                  </div>
+                  <div className="flex items-center py-1">
+                    <Flag code="IT" className="h-5 w-5 rounded-full mr-2" />
+                    <p>Italiano</p>
+                  </div>
+                  
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+        <div className="md:hidden">
+          <button onClick={handleToggle}>
+            <FontAwesomeIcon icon={faBars} size="lg" />
+          </button>
+        </div>
       </div>
-      {/*MOBILE MENU*/}
-    </>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden mt-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="relative">
+              <button className="block py-2 text-lg font-extrabold flex items-center" onClick={handleBlogToggle}>
+                Blog <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
+              </button>
+              <AnimatePresence>
+                {isBlogOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-black text-white p-4 rounded mt-2"
+                  >
+                    <a href="#sub1" className="block py-1">Sub Link 1</a>
+                    <a href="#sub2" className="block py-1">Sub Link 2</a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <div className="relative">
+              <button className="block py-2 text-lg font-extrabold flex items-center" onClick={handleShopToggle}>
+                Shop <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
+              </button>
+              <AnimatePresence>
+                {isShopOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-black text-white p-4 rounded mt-2"
+                  >
+                    <a href="#product1" className="block py-1">Product 1</a>
+                    <a href="#product2" className="block py-1">Product 2</a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <a href="#about" className="block py-2 text-lg font-extrabold">About us</a>
+            <a href="#portfolio" className="block py-2 text-lg font-extrabold">Portfolio</a>
+            <a href="#commissions" className="block py-2 text-lg font-extrabold">Commissions</a>
+            <div className="mt-4">
+              <button onClick={handleProfileToggle} className="flex items-center py-2">
+                <FontAwesomeIcon icon={faUser} size="lg" className="mr-2" /> Profile
+              </button>
+              <AnimatePresence>
+                {isProfileOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-black text-white p-4 rounded"
+                  >
+                    <div className="flex items-center py-1">
+                      <img src="path/to/profile-image.jpg" alt="Profile" className="h-8 w-8 rounded-full mr-2" />
+                      <div>
+                        <p>Bonnie Green</p>
+                        <p className="text-gray-400">name@flowbite.com</p>
+                      </div>
+                    </div>
+                    <a href="#dashboard" className="block py-1">Dashboard</a>
+                    <a href="#settings" className="block py-1">Settings</a>
+                    <a href="#earnings" className="block py-1">Earnings</a>
+                    <a href="#signout" className="block py-1">Sign out</a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <div className="mt-4">
+              <button onClick={handleLangToggle} className="flex items-center py-2">
+                <FontAwesomeIcon icon={faGlobe} size="lg" className="mr-2" /> Localization
+              </button>
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-black text-white p-4 rounded"
+                  >
+                    <div className="flex items-center py-1">
+                      <Flag code="US" className="h-5 w-5 rounded-full mr-2" />
+                      <p>English (US)</p>
+                    </div>
+                    <div className="flex items-center py-1">
+                      <Flag code="DE" className="h-5 w-5 rounded-full mr-2" />
+                      <p>Deutsch</p>
+                    </div>
+                    <div className="flex items-center py-1">
+                      <Flag code="IT" className="h-5 w-5 rounded-full mr-2" />
+                      <p>Italiano</p>
+                    </div>
+                    <div className="flex items-center py-1">
+                      <Flag code="CN" className="h-5 w-5 rounded-full mr-2" />
+                      <p>中文 (繁體)</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
-}
+};
+
+export default Navbar;

@@ -17,6 +17,6 @@ export default {
       }
     }
   },
-  plugins: [require('flowbite-typography'),],
+  plugins: [require('flowbite-typography'),require('@tailwindcss/aspect-ratio'),],
 }
 

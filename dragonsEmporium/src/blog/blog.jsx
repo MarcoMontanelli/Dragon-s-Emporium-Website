@@ -11,7 +11,7 @@ import Sidebar from "./Sidebar.jsx";
 import BlogTitle from "./BlogHeader.jsx";
 import CategorySection from "./Categories.jsx";
 import CategoryHeader from "./CategoryHeader.jsx";
-import Nav from "../components/Nav.jsx";
+
 const articleData = {
     category: "Technology",
     date: "April 23, 2024",
@@ -77,7 +77,7 @@ const articles = [
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Nav />
+    
     <Navbar />
     <div className="hidden md:block"> <Header  /></div>
     

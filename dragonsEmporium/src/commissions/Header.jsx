@@ -20,20 +20,19 @@ const hoverVariants = {
 const OurStory = () => {
   return (
     <motion.section
-      class="relative mb-2 mt-2 "
+      className="relative"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div class="px-4 mx-auto max-w-screen-xl text-center">
+      <div className="px-4 mx-auto  max-w-screen-xl text-center">
         <motion.h1
-          class="text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white"
+          className="text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white mt-4 mb-4"
           variants={hoverVariants}
           whileHover="hover"
         >
-          Commissions <br /><span class="text-[hsl(218,81%,75%)]">Choose your service</span>
+          Commissions:<br /><span className="text-[hsl(218,81%,75%)]">Choose your service</span>
         </motion.h1>
-        
       </div>
     </motion.section>
   );

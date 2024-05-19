@@ -4,18 +4,20 @@ import "../index.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import CommissionsPage from './Select.jsx';
-import DarkModeToggle from './DarkT.jsx';
-import OurStory from "./OurStory.jsx";
+
+import OurStory from "./Header.jsx";
 import StepperForm from "./StepperForm.jsx";
+
 
 const Exp = () => {
   const [selectedCommission, setSelectedCommission] = useState(null);
 
   return (
     <div>
+      
       <Navbar />
-      <DarkModeToggle />
-      {!selectedCommission && <OurStory />}
+      
+      {!selectedCommission }
       <div>
         {!selectedCommission ? (
           <CommissionsPage onSelect={setSelectedCommission} />
@@ -23,6 +25,7 @@ const Exp = () => {
           <StepperForm commission={selectedCommission} />
         )}
       </div>
+      
       <Footer />
     </div>
   );
