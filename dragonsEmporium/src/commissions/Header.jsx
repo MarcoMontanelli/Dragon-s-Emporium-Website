@@ -31,7 +31,7 @@ const OurStory = () => {
           variants={hoverVariants}
           whileHover="hover"
         >
-          Commissions:<br /><span className="text-[hsl(218,81%,75%)]">Choose your service</span>
+          Commissions:<br /><span className="text-purple-400">Choose your service</span>
         </motion.h1>
       </div>
     </motion.section>

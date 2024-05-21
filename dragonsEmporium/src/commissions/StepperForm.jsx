@@ -144,7 +144,7 @@ const StepperForm = ({ commission }) => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-gray-700 via-gray-800 to-gray-700 rounded-lg shadow-lg p-8 border border-gray-600 h-full"
+                className="bg-slate-950 border border-gray-700 rounded-lg shadow-lg p-8  h-full"
               >
                 <h1 className="text-3xl font-bold mb-6 text-white">{commission.title}</h1>
                 <CurrentStepComponent images={images} setImages={setImages} />

@@ -240,7 +240,7 @@ const Dashboard = () => {
     return (
       <div className="flex">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <div className="flex-1 p-4 bg-gray-900 text-white min-h-screen">
+        <div className="flex-1 px-4  text-white min-h-screen">
           <Header toggleSidebar={toggleSidebar} />
           <SalesOverview />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
